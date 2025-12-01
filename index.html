@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHMET DEMIR - SDET & QA Engineer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General style and font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Light gray background */
+            color: #1f2937; /* Dark gray text */
+        }
+        /* Custom class: To be shown after mail form submission */
+        .mail-success-message {
+            display: none;
+        }
+        /* Style for Experience List Items */
+        .experience-item ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            padding-left: 0;
+            color: #4b5563;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#3b82f6',
+                        'primary-dark': '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- 1. Header and Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-primary-dark">
+                <a href="#home">AHMET DEMIR</a>
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#about" class="hover:text-primary-blue transition duration-150">About</a>
+                <a href="#skills" class="hover:text-primary-blue transition duration-150">Skills</a>
+                <a href="#experience" class="hover:text-primary-blue transition duration-150">Experience</a>
+                <a href="#contact" class="px-4 py-2 bg-primary-blue text-white rounded-lg shadow-md hover:bg-blue-600 transition duration-150">Contact Me</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-primary-dark hover:bg-gray-100">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-50 transition duration-150">About</a>
+            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-50 transition duration-150">Skills</a>
+            <a href="#experience" class="block py-2 px-4 text-sm hover:bg-gray-50 transition duration-150">Experience</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-50 transition duration-150">Contact Me</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 2. Introduction Section (Home) -->
+        <section id="home" class="py-20 md:py-32 text-center">
+            <img 
+                src="https://placehold.co/160x160/3b82f6/ffffff?text=AHMET" 
+                alt="Profile Photo of Ahmet Demir" 
+                class="w-40 h-40 rounded-full mx-auto mb-6 object-cover shadow-lg border-4 border-white"
+                onerror="this.onerror=null; this.src='https://placehold.co/160x160/3b82f6/ffffff?text=AHMET';"
+            >
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-primary-dark mb-3">Hello, I'm Ahmet Demir</h2>
+            <p class="text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
+                Software Quality Assurance Engineer (SDET) | 5+ Years of Experience
+            </p>
+            <p class="text-md text-gray-500 mb-8 max-w-2xl mx-auto">
+                <a href="https://www.linkedin.com/in/demirahmet6325/" target="_blank" class="hover:text-primary-blue underline mr-4">LinkedIn</a>
+                <a href="https://github.com/ahmet11-hub" target="_blank" class="hover:text-primary-blue underline mr-4">GitHub (ahmet11-hub)</a>
+                <a href="https://github.com/qahmet1" target="_blank" class="hover:text-primary-blue underline mr-4">GitHub (qahmet1)</a>
+                <span class="inline-block mx-2">|</span>
+                <span class="font-medium text-gray-700 ml-4">Leuven, Belgium</span>
+            </p>
+            <a href="#experience" class="px-8 py-3 bg-primary-blue text-white font-semibold rounded-xl shadow-lg hover:bg-blue-600 transition duration-300 transform hover:scale-105">
+                View My Experience
+            </a>
+        </section>
+
+        <!-- 3. About Section (Professional Summary) -->
+        <section id="about" class="py-16 md:py-24 border-t border-gray-200">
+            <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl">
+                <h2 class="text-3xl font-bold text-primary-dark mb-6 text-center">Professional Summary</h2>
+                <p class="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
+                    Results-driven Software Quality Assurance Engineer/SDET with 5+ years of experience, specializing in building and managing end-to-end test automation frameworks using Java, JavaScript, and Python. Proven ability to establish robust CI/CD pipelines and drive product excellence.
+                </p>
+                <div class="mt-8 grid md:grid-cols-3 gap-6 text-center">
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h3 class="font-semibold text-primary-dark">CI/CD & Automation Architecture</h3>
+                        <p class="text-sm text-gray-600">Designed and implemented test infrastructure integrated with GitHub Actions and Jenkins. Optimized execution time using parallel testing.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h3 class="font-semibold text-primary-dark">Mobile & Web Automation</h3>
+                        <p class="text-sm text-gray-600">Built scalable framework foundations from scratch using WDIO, Appium (Mobile), and Cypress (Web), primarily leveraging JavaScript.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h3 class="font-semibold text-primary-dark">Performance Testing</h3>
+                        <p class="text-sm text-gray-600">Executed load and stress testing using K6, visualized results through Grafana, and generated detailed performance reports.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Skills Section -->
+        <section id="skills" class="py-16 md:py-24">
+            <h2 class="text-3xl font-bold text-primary-dark mb-10 text-center">Technical Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Automation Tools -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary-blue mb-3 flex items-center">
+                        <span class="text-2xl mr-2">⚙️</span> Automation Tools
+                    </h3>
+                    <p class="text-gray-700">WDIO, Appium (Mobile), Cypress, Selenium, RestAssured, Postman API, JMeter, K6 (Performance)</p>
+                </div>
+
+                <!-- CI/CD & DevOps -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary-blue mb-3 flex items-center">
+                        <span class="text-2xl mr-2">☁️</span> CI/CD & DevOps
+                    </h3>
+                    <p class="text-gray-700">GitHub Actions, Jenkins, JIRA, Git/GitHub</p>
+                </div>
+                
+                <!-- Programming & DB -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary-blue mb-3 flex items-center">
+                        <span class="text-2xl mr-2">💻</span> Programming & DB
+                    </h3>
+                    <p class="text-gray-700">Java, JavaScript, Python, SQL, MySQL, JDBC, Gherkin</p>
+                </div>
+
+                <!-- Testing & QA Concepts -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary-blue mb-3 flex items-center">
+                        <span class="text-2xl mr-2">✅</span> Testing & QA Concepts
+                    </h3>
+                    <p class="text-gray-700">Test Automation, Manual Testing, Functional Testing, API Testing, Regression Testing, Agile, SDLC, STLC, QMS</p>
+                </div>
+                
+                <!-- Observability & Reporting -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary-blue mb-3 flex items-center">
+                        <span class="text-2xl mr-2">📊</span> Observability & Reporting
+                    </h3>
+                    <p class="text-gray-700">Grafana, Report Writing, Analytical Thinking, Problem-Solving, ISTQB Certified</p>
+                </div>
+
+                <!-- Languages -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary-blue mb-3 flex items-center">
+                        <span class="text-2xl mr-2">🗣️</span> Languages
+                    </h3>
+                    <p class="text-gray-700">English (Advanced), Turkish (Proficient), Arabic (Proficient), Greek (Intermediate), Dutch (Beginner)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Career Experience Section -->
+        <section id="experience" class="py-16 md:py-24 border-t border-gray-200">
+            <h2 class="text-3xl font-bold text-primary-dark mb-10 text-center">Career Experience</h2>
+            <div class="space-y-12">
+                
+                <!-- Job 1: Amega (Current) -->
+                <div class="bg-white p-6 rounded-xl shadow-xl experience-item">
+                    <div class="flex flex-col md:flex-row justify-between items-start mb-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-primary-dark">QA Engineer</h3>
+                            <p class="text-primary-blue font-medium">Amega - Limassol, Cyprus</p>
+                        </div>
+                        <span class="text-sm text-gray-500 md:mt-0 mt-1">Jan 2025 - Present</span>
+                    </div>
+                    <ul class="text-sm space-y-2">
+                        <li>Architected and built test automation framework foundations from scratch for two major projects, integrating WDIO/Appium (Mobile) and Cypress (Web) using JavaScript.</li>
+                        <li>Successfully integrated these frameworks with GitHub Actions to establish a robust CI/CD pipeline, significantly enhancing release quality and velocity.</li>
+                        <li>Implemented parallel test execution within the automation frameworks to optimize test suite runtime and achieve faster feedback cycles.</li>
+                        <li>Conducted performance and load testing using K6, monitored key metrics via Grafana dashboards, and provided actionable performance analysis reports.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2: BDSwiss -->
+                <div class="bg-white p-6 rounded-xl shadow-xl experience-item">
+                    <div class="flex flex-col md:flex-row justify-between items-start mb-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-primary-dark">Software Quality Assurance Engineer/SDET</h3>
+                            <p class="text-primary-blue font-medium">BDSwiss - Nicosia, Cyprus</p>
+                        </div>
+                        <span class="text-sm text-gray-500 md:mt-0 mt-1">Feb 2023 - Feb 2025</span>
+                    </div>
+                    <ul class="text-sm space-y-2">
+                        <li>Maximized test coverage by developing and executing comprehensive test plans and cases.</li>
+                        <li>Reduced the Mean Time to Resolution (MTTR) by collaborating closely with developers to identify and resolve issues in early development stages.</li>
+                        <li>Tracked and reported key QA metrics (e.g., defect density, open defect counts) to stakeholders, driving informed decision-making.</li>
+                        <li>Conducted rigorous regression testing to validate bug fixes and ensure system reliability across all releases.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3: Techno Study -->
+                <div class="bg-white p-6 rounded-xl shadow-xl experience-item">
+                    <div class="flex flex-col md:flex-row justify-between items-start mb-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-primary-dark">Mentor</h3>
+                            <p class="text-primary-blue font-medium">Techno Study</p>
+                        </div>
+                        <span class="text-sm text-gray-500 md:mt-0 mt-1">Apr 2022 - Oct 2023</span>
+                    </div>
+                    <ul class="text-sm space-y-2">
+                        <li>Spearheaded automation initiatives that introduced modern frameworks, streamlining regression and functional testing and reducing overall testing time by 40%.</li>
+                        <li>Provided hands-on training to mentees on critical tools including Selenium, Cucumber, TestNG, Postman, JMeter, and RestAssured.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 4: Education/Certification Highlights -->
+                <div class="bg-white p-6 rounded-xl shadow-xl experience-item">
+                    <div class="flex flex-col md:flex-row justify-between items-start mb-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-primary-dark">Education & Certifications</h3>
+                            <p class="text-primary-blue font-medium">Academic and Professional Milestones</p>
+                        </div>
+                        <span class="text-sm text-gray-500 md:mt-0 mt-1">2013 - 2023</span>
+                    </div>
+                    <ul class="text-sm space-y-2">
+                        <li>**ISTQB Certification** from Turkish Testing Board (Feb 2023).</li>
+                        <li>**Bachelor's Degree in Physics** from Ataturk University (June 2013).</li>
+                        <li>*Note: Prior experience as a Physics Teacher (2013-2019) developed strong analytical and mentorship skills utilized in current QA roles.*</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                 <a href="https://www.linkedin.com/in/demirahmet6325/" target="_blank" class="text-gray-700 hover:text-primary-blue transition duration-150 font-medium flex items-center justify-center">
+                    <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.809 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.743.084-.729.084-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.77.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.045.138 3.003.404 2.292-1.552 3.3-1.23 3.3-1.23.652 1.652.241 2.873.118 3.176.766.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.476 5.922.43.375.817 1.116.817 2.243v3.349c0 .316.192.694.8.576C20.566 21.821 24 17.311 24 12 24 5.373 18.627 0 12 0z"/></svg>
+                    View Full Profile on LinkedIn
+                </a>
+            </div>
+        </section>
+
+        <!-- 6. Contact Section (Contact Me) -->
+        <section id="contact" class="py-16 md:py-24 border-t border-gray-200">
+            <h2 class="text-3xl font-bold text-primary-dark mb-6 text-center">Contact Me</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-xl mx-auto">
+                I'm available for new projects, job offers, or just a quick chat over coffee.
+            </p>
+            <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl max-w-lg mx-auto">
+                <!-- IMPORTANT: mailto: uses your actual email address from the CV -->
+                <form id="contact-form" action="mailto:ahmetdem6325@gmail.com" method="GET" enctype="text/plain" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                        <input type="text" name="subject" id="name" placeholder="Your Full Name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email Address</label>
+                        <!-- Email information will be included in the body field -->
+                        <input type="email" name="user_email" id="email" placeholder="example@mail.com" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                        <textarea id="message" name="body" rows="4" placeholder="Write your message here..." required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue"></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-4 py-3 bg-primary-blue text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300 transform hover:scale-[1.01]">
+                        Send Message
+                    </button>
+                    <!-- Success message area (shown with JS) -->
+                    <div id="success-message" class="mail-success-message p-3 bg-green-100 text-green-700 rounded-lg text-sm font-medium">
+                        Thank you! Your email client has been launched.
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white py-6 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Ahmet Demir. All rights reserved.</p>
+           
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Menu and Contact Form
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Form Submission Logic (using mailto: protocol)
+        const form = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', function(event) {
+            // Note: The actual email application launch is handled by the browser.
+            // This script customizes the mailto: link and provides a success message.
+
+            // 1. Get user input for email construction
+            const userEmail = document.getElementById('email').value;
+            const subject = encodeURIComponent(`Inquiry from Portfolio - ${document.getElementById('name').value}`);
+            const messageBody = encodeURIComponent(`Sender Email: ${userEmail}\n\nMessage:\n${document.getElementById('message').value}`);
+            
+            // Mailto link is built with the recipient's email (ahmetdem6325@gmail.com from CV)
+            this.action = `mailto:ahmetdem6325@gmail.com?subject=${subject}&body=${messageBody}`;
+
+            // Show success message and reset the form fields after a slight delay
+            setTimeout(() => {
+                form.reset();
+                successMessage.style.display = 'block';
+                // Hide the message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }, 100);
+        });
+    </script>
+</body>
+</html>
