@@ -4,30 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AHMET DEMIR - SDET & QA Engineer Portfolio</title>
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN for utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to the separate custom styles file (styles.css MUST be in the same folder) -->
+    <link rel="stylesheet" href="styles.css">
     <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* General style and font */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f9fb; /* Light gray background */
-            color: #1f2937; /* Dark gray text */
-        }
-        /* Custom class: To be shown after mail form submission */
-        .mail-success-message {
-            display: none;
-        }
-        /* Style for Experience List Items */
-        .experience-item ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            padding-left: 0;
-            color: #4b5563;
-        }
-    </style>
     <script>
+        // Custom Tailwind configuration for colors
         tailwind.config = {
             theme: {
                 extend: {
@@ -42,7 +26,7 @@
 </head>
 <body class="antialiased">
 
-    <!-- 1. Header and Navigation -->
+    <!-- 1. Header and Navigation (Sticky) -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <h1 class="text-xl font-bold text-primary-dark">
@@ -73,10 +57,10 @@
         <!-- 2. Introduction Section (Home) -->
         <section id="home" class="py-20 md:py-32 text-center">
             <img 
-                src="https://placehold.co/160x160/3b82f6/ffffff?text=AHMET" 
+                src="https://media.licdn.com/dms/image/v2/D4E03AQGnNVTzhDB8IQ/profile-displayphoto-scale_200_200/B4EZrBz8FCJgAY-/0/1764188210294?e=1766016000&v=beta&t=zD9_Tq1FnleLCl1CPYWV34slkq8qvO2pDulJ3jsxs0w" 
                 alt="Profile Photo of Ahmet Demir" 
                 class="w-40 h-40 rounded-full mx-auto mb-6 object-cover shadow-lg border-4 border-white"
-                onerror="this.onerror=null; this.src='https://placehold.co/160x160/3b82f6/ffffff?text=AHMET';"
+                onerror="this.onerror=null; this.src='https://media.licdn.com/dms/image/v2/D4E03AQGnNVTzhDB8IQ/profile-displayphoto-scale_200_200/B4EZrBz8FCJgAY-/0/1764188210294?e=1766016000&v=beta&t=zD9_Tq1FnleLCl1CPYWV34slkq8qvO2pDulJ3jsxs0w';"
             >
             <h2 class="text-4xl sm:text-5xl font-extrabold text-primary-dark mb-3">Hello, I'm Ahmet Demir</h2>
             <p class="text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
@@ -290,7 +274,6 @@
     <footer class="bg-primary-dark text-white py-6 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
             <p>&copy; 2025 Ahmet Demir. All rights reserved.</p>
-           
         </div>
     </footer>
 
