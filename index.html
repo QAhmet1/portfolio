@@ -1,372 +1,709 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AHMET DEMIR - SDET & QA Engineer Portfolio</title>
     <!-- Tailwind CSS CDN for utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link to custom styles -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <!-- Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script>
-        // Custom Tailwind configuration for colors
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-blue': '#3b82f6',
-                        'primary-dark': '#1f2937',
-                    }
-                }
-            }
-        }
+      // Custom Tailwind configuration for colors
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-blue": "#3b82f6",
+              "primary-dark": "#1f2937",
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="antialiased bg-slate-950 text-slate-50">
-
+  </head>
+  <body class="antialiased bg-slate-950 text-slate-50">
     <!-- 1. Header and Navigation (Sticky) -->
-    <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white font-bold shadow-lg">AD</div>
-                <h1 class="text-xl font-bold text-white tracking-tight">
-                    <a href="#home">Ahmet Demir</a>
-                </h1>
-            </div>
-            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-200">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#media" class="nav-link">Media</a>
-                <a href="#contact" class="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg hover:shadow-blue-500/30 transition duration-150">Contact</a>
-            </nav>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-white hover:bg-white/5">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+    <header
+      class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-white/10"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <div
+            class="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white font-bold shadow-lg"
+          >
+            AD
+          </div>
+          <h1 class="text-xl font-bold text-white tracking-tight">
+            <a href="#home">Ahmet Demir</a>
+          </h1>
         </div>
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-slate-900">
-            <a href="#about" class="mobile-link">About</a>
-            <a href="#skills" class="mobile-link">Skills</a>
-            <a href="#experience" class="mobile-link">Experience</a>
-            <a href="#media" class="mobile-link">Media</a>
-            <a href="#contact" class="mobile-link">Contact</a>
-        </div>
+        <nav
+          class="hidden md:flex space-x-6 text-sm font-medium text-slate-200"
+        >
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#media" class="nav-link">Media</a>
+          <a
+            href="#contact"
+            class="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg hover:shadow-blue-500/30 transition duration-150"
+            >Contact</a
+          >
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="md:hidden p-2 rounded-lg text-white hover:bg-white/5"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Menu Dropdown -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-white/10 bg-slate-900"
+      >
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#media" class="mobile-link">Media</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+      </div>
     </header>
 
     <main class="relative overflow-hidden">
-        <div class="glow blur-3xl"></div>
-        <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.18),transparent_25%),radial-gradient(circle_at_80%_0%,rgba(99,102,241,0.18),transparent_25%),radial-gradient(circle_at_50%_80%,rgba(14,165,233,0.14),transparent_30%)]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-
+      <div class="glow blur-3xl"></div>
+      <div
+        class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.18),transparent_25%),radial-gradient(circle_at_80%_0%,rgba(99,102,241,0.18),transparent_25%),radial-gradient(circle_at_50%_80%,rgba(14,165,233,0.14),transparent_30%)]"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <!-- 2. Introduction Section (Home) -->
         <section id="home" class="py-20 md:py-28">
-            <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
-                <div class="space-y-6">
-                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">
-                        SDET • QA Engineer • Automation Strategist
-                    </div>
-                    <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight text-white">
-                        I build reliable releases with automation, observability, and speed.
-                    </h2>
-                    <p class="text-lg text-slate-300 max-w-2xl">
-                        5+ years designing test architecture, scaling CI/CD, and delivering high-quality web and mobile products. Obsessed with measurable quality, fast feedback, and pragmatic tooling.
-                    </p>
-                    <div class="flex flex-wrap gap-3">
-                        <a href="#experience" class="btn-primary">View Experience</a>
-                        <a href="AHMET_DEMIR_QA_SDET_Resume.pdf" class="btn-ghost" target="_blank" rel="noreferrer">Download Résumé</a>
-                    </div>
-                    <div class="flex items-center space-x-4 text-slate-300">
-                        <a href="https://www.linkedin.com/in/demirahmet6325/" target="_blank" class="social-link">LinkedIn</a>
-                        <span class="text-slate-500">•</span>
-                        <a href="https://github.com/ahmet11-hub" target="_blank" class="social-link">GitHub (ahmet11-hub)</a>
-                        <span class="text-slate-500">•</span>
-                        <a href="https://github.com/qahmet1" target="_blank" class="social-link">GitHub (qahmet1)</a>
-                        <span class="text-slate-500">•</span>
-                        <span class="text-sm text-slate-400">Leuven, Belgium</span>
-                    </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
-                        <div class="metric-card">
-                            <p class="metric-number">50% faster</p>
-                            <p class="metric-label">release feedback via parallel runs</p>
-                        </div>
-                        <div class="metric-card">
-                            <p class="metric-number">3 stacks</p>
-                            <p class="metric-label">Java • JavaScript • Python</p>
-                        </div>
-                        <div class="metric-card">
-                            <p class="metric-number">CI/CD</p>
-                            <p class="metric-label">GitHub Actions • Jenkins</p>
-                        </div>
-                        <div class="metric-card">
-                            <p class="metric-number">Perf</p>
-                            <p class="metric-label">K6 + Grafana dashboards</p>
-                        </div>
-                    </div>
+          <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+            <div class="space-y-6">
+              <div
+                class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-[0.2em] text-blue-200"
+              >
+                SDET • QA Engineer • Automation Strategist
+              </div>
+              <h2
+                class="text-4xl sm:text-5xl font-extrabold leading-tight text-white"
+              >
+                I build reliable releases with automation, observability, and
+                speed.
+              </h2>
+              <p class="text-lg text-slate-300 max-w-2xl">
+                5+ years designing test architecture, scaling CI/CD, and
+                delivering high-quality web and mobile products. Obsessed with
+                measurable quality, fast feedback, and pragmatic tooling.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a href="#experience" class="btn-primary">View Experience</a>
+                <a
+                  href="AHMET_DEMIR_QA_SDET_Resume.pdf"
+                  class="btn-ghost"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Download Resume</a
+                >
+              </div>
+              <div class="flex items-center space-x-4 text-slate-300">
+                <a
+                  href="https://www.linkedin.com/in/demirahmet6325/"
+                  target="_blank"
+                  class="social-link"
+                  >LinkedIn</a
+                >
+                <!-- <span class="text-slate-500">•</span>
+                <a
+                  href="https://github.com/ahmet11-hub"
+                  target="_blank"
+                  class="social-link"
+                  >GitHub</a
+                > -->
+                <span class="text-slate-500">•</span>
+                <a
+                  href="https://github.com/qahmet1"
+                  target="_blank"
+                  class="social-link"
+                  >GitHub</a
+                >
+                <span class="text-slate-500">•</span>
+                <span class="text-sm text-slate-400">Leuven, Belgium</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+                <div class="metric-card">
+                  <p class="metric-number">50% faster</p>
+                  <p class="metric-label">release feedback via parallel runs</p>
                 </div>
-                <div class="relative group">
-                    <div class="profile-card">
-                        <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500/60 via-indigo-500/60 to-cyan-500/60 blur-2xl opacity-60 group-hover:opacity-90 transition"></div>
-                        <div class="relative bg-slate-900/80 border border-white/10 rounded-3xl p-6 shadow-2xl">
-                            <img 
-                                src="https://media.licdn.com/dms/image/v2/D4E03AQGnNVTzhDB8IQ/profile-displayphoto-scale_200_200/B4EZrBz8FCJgAY-/0/1764188210294?e=1766016000&v=beta&t=zD9_Tq1FnleLCl1CPYWV34slkq8qvO2pDulJ3jsxs0w" 
-                                alt="Profile Photo of Ahmet Demir" 
-                                class="w-40 h-40 rounded-2xl mx-auto mb-6 object-cover shadow-xl border border-white/10"
-                                onerror="this.onerror=null; this.src='https://via.placeholder.com/200x200.png?text=Ahmet+Demir';"
-                            >
-                            <p class="text-sm text-blue-200 uppercase tracking-[0.2em] text-center mb-2">Quality in Motion</p>
-                            <p class="text-center text-slate-200 text-base leading-relaxed">
-                                I orchestrate end-to-end automation, embed QA into delivery pipelines, and coach teams to ship confidently with data-driven quality gates.
-                            </p>
-                        </div>
-                    </div>
+                <div class="metric-card">
+                  <p class="metric-number">3 stacks</p>
+                  <p class="metric-label">Java • JavaScript • Python</p>
                 </div>
+                <div class="metric-card">
+                  <p class="metric-number">CI/CD</p>
+                  <p class="metric-label">GitHub Actions • Jenkins</p>
+                </div>
+                <div class="metric-card">
+                  <p class="metric-number">Perf</p>
+                  <p class="metric-label">K6 + Grafana dashboards</p>
+                </div>
+              </div>
             </div>
+            <div class="relative group">
+              <div class="profile-card">
+                <div
+                  class="absolute -inset-0.5 bg-gradient-to-r from-blue-500/60 via-indigo-500/60 to-cyan-500/60 blur-2xl opacity-60 group-hover:opacity-90 transition"
+                ></div>
+                <div
+                  class="relative bg-slate-900/80 border border-white/10 rounded-3xl p-6 shadow-2xl"
+                >
+                  <img
+                    src="https://media.licdn.com/dms/image/v2/D4E03AQGnNVTzhDB8IQ/profile-displayphoto-scale_200_200/B4EZrBz8FCJgAY-/0/1764188210294?e=1766016000&v=beta&t=zD9_Tq1FnleLCl1CPYWV34slkq8qvO2pDulJ3jsxs0w"
+                    alt="Profile Photo of Ahmet Demir"
+                    class="w-40 h-40 rounded-2xl mx-auto mb-6 object-cover shadow-xl border border-white/10"
+                    onerror="this.onerror=null; this.src='https://via.placeholder.com/200x200.png?text=Ahmet+Demir';"
+                  />
+                  <p
+                    class="text-sm text-blue-200 uppercase tracking-[0.2em] text-center mb-2"
+                  >
+                    Quality in Motion
+                  </p>
+                  <p
+                    class="text-center text-slate-200 text-base leading-relaxed"
+                  >
+                    I orchestrate end-to-end automation, embed QA into delivery
+                    pipelines, and coach teams to ship confidently with
+                    data-driven quality gates.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- 3. About Section (Professional Summary) -->
         <section id="about" class="py-16 md:py-24">
-            <div class="glass-card">
-                <h2 class="section-title">Professional Summary</h2>
-                <p class="text-lg text-slate-200 leading-relaxed max-w-4xl mx-auto text-center">
-                    Results-driven SDET with 5+ years building automation from scratch across web and mobile, streamlining CI/CD with GitHub Actions and Jenkins, and elevating quality through observability. Comfortable pairing with devs, leading QA strategy, and shipping measurable outcomes.
+          <div class="glass-card">
+            <h2 class="section-title">Professional Summary</h2>
+            <p
+              class="text-lg text-slate-200 leading-relaxed max-w-4xl mx-auto text-center"
+            >
+              Results-driven SDET with 5+ years building automation from scratch
+              across web and mobile, streamlining CI/CD with GitHub Actions and
+              Jenkins, and elevating quality through observability. Comfortable
+              pairing with devs, leading QA strategy, and shipping measurable
+              outcomes.
+            </p>
+            <div class="mt-10 grid md:grid-cols-3 gap-6">
+              <div class="pill-card">
+                <h3 class="pill-title">CI/CD & Automation</h3>
+                <p class="pill-body">
+                  Blueprinted pipelines, parallelized suites, and reduced
+                  feedback cycles for faster releases.
                 </p>
-                <div class="mt-10 grid md:grid-cols-3 gap-6">
-                    <div class="pill-card">
-                        <h3 class="pill-title">CI/CD & Automation</h3>
-                        <p class="pill-body">Blueprinted pipelines, parallelized suites, and reduced feedback cycles for faster releases.</p>
-                    </div>
-                    <div class="pill-card">
-                        <h3 class="pill-title">Web • Mobile • API</h3>
-                        <p class="pill-body">WDIO, Appium, Cypress, Selenium, RestAssured, Postman for end-to-end, UI, and API coverage.</p>
-                    </div>
-                    <div class="pill-card">
-                        <h3 class="pill-title">Performance & Insights</h3>
-                        <p class="pill-body">K6 load testing with Grafana dashboards; actionable reports aligned to SLAs and SLOs.</p>
-                    </div>
-                </div>
+              </div>
+              <div class="pill-card">
+                <h3 class="pill-title">Web • Mobile • API</h3>
+                <p class="pill-body">
+                  WDIO, Appium, Cypress, Selenium, RestAssured, Postman for
+                  end-to-end, UI, and API coverage.
+                </p>
+              </div>
+              <div class="pill-card">
+                <h3 class="pill-title">Performance & Insights</h3>
+                <p class="pill-body">
+                  K6 load testing with Grafana dashboards; actionable reports
+                  aligned to SLAs and SLOs.
+                </p>
+              </div>
             </div>
+          </div>
         </section>
 
         <!-- 4. Skills Section -->
         <section id="skills" class="py-16 md:py-24">
-            <h2 class="section-title">Technical Stack</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="skill-card">
-                    <div class="skill-icon">⚙️</div>
-                    <div>
-                        <h3 class="skill-title">Automation</h3>
-                        <p class="skill-body">WDIO, Appium (Mobile), Cypress, Selenium, RestAssured, Postman API, JMeter, K6</p>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">☁️</div>
-                    <div>
-                        <h3 class="skill-title">CI/CD & DevOps</h3>
-                        <p class="skill-body">GitHub Actions, Jenkins, JIRA, Git/GitHub, quality gates aligned to pipelines</p>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">💻</div>
-                    <div>
-                        <h3 class="skill-title">Programming & Data</h3>
-                        <p class="skill-body">Java, JavaScript, Python, SQL, MySQL, JDBC, Gherkin, BDD collaboration</p>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">✅</div>
-                    <div>
-                        <h3 class="skill-title">QA Practices</h3>
-                        <p class="skill-body">Functional, API, regression, accessibility, Agile/SDLC/STLC, risk-based testing</p>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📊</div>
-                    <div>
-                        <h3 class="skill-title">Observability</h3>
-                        <p class="skill-body">Grafana dashboards, reporting, root-cause analysis, defect metrics, ISTQB certified</p>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🗣️</div>
-                    <div>
-                        <h3 class="skill-title">Languages</h3>
-                        <p class="skill-body">English (Advanced), Turkish (Proficient), Arabic (Proficient), Greek (Intermediate), Dutch (Beginner)</p>
-                    </div>
-                </div>
+          <h2 class="section-title">Technical Stack</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="skill-card">
+              <div class="skill-icon">⚙️</div>
+              <div>
+                <h3 class="skill-title">Automation</h3>
+                <p class="skill-body">
+                  WDIO, Appium (Mobile), Cypress, Selenium, RestAssured, Postman
+                  API, JMeter, K6
+                </p>
+              </div>
             </div>
+            <div class="skill-card">
+              <div class="skill-icon">☁️</div>
+              <div>
+                <h3 class="skill-title">CI/CD & DevOps</h3>
+                <p class="skill-body">
+                  GitHub Actions, Jenkins, JIRA, Git/GitHub, quality gates
+                  aligned to pipelines
+                </p>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">💻</div>
+              <div>
+                <h3 class="skill-title">Programming & Data</h3>
+                <p class="skill-body">
+                  Java, JavaScript, Python, SQL, MySQL, JDBC, Gherkin, BDD
+                  collaboration
+                </p>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">✅</div>
+              <div>
+                <h3 class="skill-title">QA Practices</h3>
+                <p class="skill-body">
+                  Functional, API, regression, accessibility, Agile/SDLC/STLC,
+                  risk-based testing
+                </p>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">📊</div>
+              <div>
+                <h3 class="skill-title">Observability</h3>
+                <p class="skill-body">
+                  Grafana dashboards, reporting, root-cause analysis, defect
+                  metrics, ISTQB certified
+                </p>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🗣️</div>
+              <div>
+                <h3 class="skill-title">Languages</h3>
+                <p class="skill-body">
+                  English (Advanced), Turkish (Proficient), Arabic (Proficient),
+                  Greek (Intermediate), Dutch (Elementery)
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- 5. Career Experience Section -->
         <section id="experience" class="py-16 md:py-24">
-            <h2 class="section-title">Career Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-role">QA Engineer</h3>
-                            <p class="timeline-company">Amega · Limassol, Cyprus</p>
-                        </div>
-                        <span class="timeline-date">Jan 2025 - Present</span>
-                    </div>
-                    <ul class="timeline-list">
-                        <li>Built end-to-end automation from scratch for two projects with WDIO/Appium and Cypress in JavaScript.</li>
-                        <li>Embedded suites into GitHub Actions pipelines, hardening quality gates and accelerating releases.</li>
-                        <li>Enabled parallel execution to cut suite time and shorten feedback loops.</li>
-                        <li>Ran performance/load testing with K6, surfacing metrics in Grafana for stakeholders.</li>
-                    </ul>
+          <h2 class="section-title">Career Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">QA Engineer</h3>
+                  <p class="timeline-company">Amega · Limassol, Cyprus</p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-role">Software QA Engineer / SDET</h3>
-                            <p class="timeline-company">BDSwiss · Nicosia, Cyprus</p>
-                        </div>
-                        <span class="timeline-date">Feb 2023 - Feb 2025</span>
-                    </div>
-                    <ul class="timeline-list">
-                        <li>Increased coverage with comprehensive plans and deep regression cycles.</li>
-                        <li>Lowered MTTR by pairing with developers to catch and fix early.</li>
-                        <li>Reported QA metrics (defect density, open defects) for data-driven delivery decisions.</li>
-                        <li>Validated releases through rigorous regression before production sign-off.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-role">Mentor</h3>
-                            <p class="timeline-company">Techno Study</p>
-                        </div>
-                        <span class="timeline-date">Apr 2022 - Oct 2023</span>
-                    </div>
-                    <ul class="timeline-list">
-                        <li>Introduced modern automation frameworks, cutting regression time by 40%.</li>
-                        <li>Coached mentees on Selenium, Cucumber, TestNG, Postman, JMeter, RestAssured.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-role">Education & Certifications</h3>
-                            <p class="timeline-company">Academic & Professional Milestones</p>
-                        </div>
-                        <span class="timeline-date">2013 - 2023</span>
-                    </div>
-                    <ul class="timeline-list">
-                        <li>ISTQB Certification (Turkish Testing Board), Feb 2023.</li>
-                        <li>Bachelor's Degree in Physics, Ataturk University, Jun 2013.</li>
-                        <li>Physics Teacher (2013-2019) — strengthened analytical and mentoring skills.</li>
-                    </ul>
-                </div>
+                <span class="timeline-date">Jan 2025 - Present</span>
+              </div>
+              <ul class="timeline-list">
+                 <li>Architected and built test automation frameworks from scratch for two major projects, integrating WDIO/Appium (Mobile) and Cypress (Web) using JavaScript.</li>
+                 <li>Integrated the frameworks with GitHub Actions to establish a robust CI/CD pipeline, boosting release quality and velocity.</li>
+                 <li>Implemented parallel test execution to optimize suite runtime and achieve faster feedback cycles.</li>
+                 <li>Conducted performance and load testing using K6, visualized key metrics in Grafana, and delivered actionable reports.</li>
+              </ul>
             </div>
-            <div class="text-center mt-12">
-                 <a href="https://www.linkedin.com/in/demirahmet6325/" target="_blank" class="inline-flex items-center text-slate-200 hover:text-blue-200 transition font-medium">
-                    <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.809 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.743.084-.729.084-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.77.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.045.138 3.003.404 2.292-1.552 3.3-1.23 3.3-1.23.652 1.652.241 2.873.118 3.176.766.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.476 5.922.43.375.817 1.116.817 2.243v3.349c0 .316.192.694.8.576C20.566 21.821 24 17.311 24 12 24 5.373 18.627 0 12 0z"/></svg>
-                    View Full Profile on LinkedIn
-                </a>
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Software QA Engineer / SDET</h3>
+                  <p class="timeline-company">BDSwiss · Nicosia, Cyprus</p>
+                </div>
+                <span class="timeline-date">Feb 2023 - Feb 2025</span>
+              </div>
+              <ul class="timeline-list">
+                 <li>Maximized test coverage by developing and executing comprehensive test plans and cases.</li>
+                 <li>Reduced MTTR by collaborating closely with developers to identify and resolve issues early.</li>
+                 <li>Tracked and reported key QA metrics (defect density, open defects) to drive informed decisions.</li>
+                 <li>Conducted rigorous regression testing to validate fixes and ensure release reliability.</li>
+              </ul>
             </div>
+
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div>
+                   <h3 class="timeline-role">QA Engineer</h3>
+                   <p class="timeline-company">Mersys · Frankfurt, Germany</p>
+                </div>
+                 <span class="timeline-date">Jan 2021 - Feb 2023</span>
+              </div>
+              <ul class="timeline-list">
+                 <li>Expanded UI and API automation coverage for core learning modules, stabilizing nightly runs.</li>
+                 <li>Integrated suites into CI to fail builds on regressions and quarantine flaky tests.</li>
+                 <li>Partnered with developers to triage defects early and maintain low MTTR.</li>
+                 <li>Published concise quality reports summarizing risk, coverage, and release readiness.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div>
+                   <h3 class="timeline-role">Mentor</h3>
+                   <p class="timeline-company">Techno Study</p>
+                </div>
+                 <span class="timeline-date">Apr 2022 - Oct 2023</span>
+              </div>
+              <ul class="timeline-list">
+                 <li>Spearheaded automation initiatives introducing modern frameworks, reducing regression time by 40%.</li>
+                 <li>Provided hands-on training on Selenium, Cucumber, TestNG, Postman, JMeter, and RestAssured.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Education & Certifications</h3>
+                  <p class="timeline-company">
+                    Academic & Professional Milestones
+                  </p>
+                </div>
+                <span class="timeline-date">2013 - 2023</span>
+              </div>
+              <ul class="timeline-list">
+                <li>ISTQB Certification (Turkish Testing Board), Feb 2023.</li>
+                <li>
+                  Bachelor's Degree in Physics, Ataturk University, Jun 2013.
+                </li>
+                <li>
+                  Physics Teacher (2013-2019) — strengthened analytical and
+                  mentoring skills.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="text-center mt-12">
+            <a
+              href="https://www.linkedin.com/in/demirahmet6325/"
+              target="_blank"
+              class="inline-flex items-center text-slate-200 hover:text-blue-200 transition font-medium"
+            >
+              <svg
+                class="w-6 h-6 mr-2"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.809 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.743.084-.729.084-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.77.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.045.138 3.003.404 2.292-1.552 3.3-1.23 3.3-1.23.652 1.652.241 2.873.118 3.176.766.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.476 5.922.43.375.817 1.116.817 2.243v3.349c0 .316.192.694.8.576C20.566 21.821 24 17.311 24 12 24 5.373 18.627 0 12 0z"
+                />
+              </svg>
+              View Full Profile on LinkedIn
+            </a>
+          </div>
         </section>
 
-        <!-- 6. Media & Showreel -->
-        <section id="media" class="py-16 md:py-24">
-            <h2 class="section-title">Showreel & Media</h2>
-            <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-8">
-                <div class="glass-card h-full">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-semibold text-white">Featured Demo</h3>
-                        <span class="text-xs text-slate-400">Replace the video link with your own</span>
-                    </div>
-                    <div class="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Automation Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <p class="text-slate-300 text-sm mt-4">
-                        Want to showcase a new project? Swap the iframe URL with your own YouTube/Vimeo link, or replace with a local <code class="code-inline">&lt;video src="media/demo.mp4" controls&gt;</code> element.
-                    </p>
+        <!-- 6. Projects Section -->
+        <section id="projects" class="py-16 md:py-24">
+          <h2 class="section-title">Projects</h2>
+          <p class="text-center text-slate-300 mb-10 max-w-3xl mx-auto">
+            <!-- Each card is structured so you can easily add more work: project
+            name, description, GitHub link, and optional image or video. -->
+          </p>
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Playwright project -->
+            <div class="project-card">
+              <div class="project-head">
+                <div>
+                  <h3 class="project-title">Playwright Automation Suite</h3>
+                  <p class="project-subtitle">
+                    UI and API automation with Playwright, Page Object Model,
+                    and rich reporting.
+                  </p>
                 </div>
-                <div class="glass-card h-full">
-                    <h3 class="text-xl font-semibold text-white mb-4">Media Gallery</h3>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="gallery-tile" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80');"></div>
-                        <div class="gallery-tile" style="background-image:url('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=800&q=80');"></div>
-                        <div class="gallery-tile" style="background-image:url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80');"></div>
-                        <div class="gallery-tile" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');"></div>
-                    </div>
-                    <p class="text-slate-300 text-sm mt-4">
-                        Swap any tile background URL with your images (JPG/PNG/WebP). For a local asset, place it in a <code class="code-inline">media/</code> folder and set <code class="code-inline">background-image:url('media/your-photo.jpg')</code>.
-                    </p>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/QAhmet1/Playwright_project"
+                    target="_blank"
+                    class="project-link"
+                    >Repo</a
+                  >
                 </div>
+              </div>
+              <p class="project-body">
+                End-to-end coverage for demo web apps and APIs, with reusable
+                fixtures and CI-friendly reports.
+              </p>
+              <ul class="project-points">
+                <li>API flows against DummyJSON demo API.</li>
+                <li>
+                  Custom fixtures that expose pages/clients as reusable commands.
+                </li>
+                <li>
+                  Allure reporting + Playwright HTML report with one command to
+                  run and open.
+                </li>
+                <li>
+                  GitHub Actions workflow scheduled via cron (07:00 UTC daily)
+                  and on push / PR.
+                </li>
+              </ul>
+              <div class="project-media">
+                <img
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+                  alt="Playwright automation dashboards and reports"
+                />
+              </div>
+              <div class="project-tags">
+                <span class="tag">Playwright</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Allure</span>
+              </div>
             </div>
+
+            <!-- Template for another project -->
+            <div class="project-card">
+              <div class="project-head">
+                <div>
+                  <h3 class="project-title">Cypress Test Automation</h3>
+                  <p class="project-subtitle">UI and API automation with Cypress, Page Object Model, and rich reporting.</p>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/QAhmet1/cypress" 
+                  target="_blank" 
+                  class="project-link">Repo</a>
+                </div>
+              </div>
+              <p class="project-body">
+               End-to-end coverage for demo web apps and APIs, with reusable fixtures and CI-friendly reports.
+              </p>
+               <ul class="project-points">
+                <li>API flows against DummyJSON demo API.</li>
+                <li>
+                  Custom fixtures that expose pages/clients as reusable commands.
+                </li>
+                <li>
+                  Allure reporting with one command to run and open.
+                </li>
+                <li>
+                  GitHub Actions workflow scheduled via cron (07:00 UTC daily)
+                  and on push / PR.
+                </li>
+              </ul>
+              <div class="project-media">
+                <!-- Replace this image or swap for <video> / <iframe> -->
+                <img
+                  src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=80"
+                  alt="Automation project illustration"
+                />
+              </div>
+              <div class="project-tags">
+                <span class="tag">Cypress</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">API</span>
+                <span class="tag">UI</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">Allure</span>
+              </div>
+            </div>
+            <!-- End op project template -->
+          </div>
+        </section>
+
+        <!-- 7. Media & Showreel -->
+        <section id="media" class="py-16 md:py-24">
+          <h2 class="section-title">Showreel & Media</h2>
+          <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-8">
+            <div class="glass-card h-full">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-white">Featured Demo</h3>
+                <span class="text-xs text-slate-400"
+                  >Replace the video link with your own</span
+                >
+              </div>
+              <div
+                class="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-xl"
+              >
+                <iframe
+                  class="w-full h-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="Automation Demo"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <p class="text-slate-300 text-sm mt-4">
+                Want to showcase a new project? Swap the iframe URL with your
+                own YouTube/Vimeo link, or replace with a local
+                <code class="code-inline"
+                  >&lt;video src="media/demo.mp4" controls&gt;</code
+                >
+                element.
+              </p>
+            </div>
+            <!-- <div class="glass-card h-full">
+              <h3 class="text-xl font-semibold text-white mb-4">
+                Media Gallery
+              </h3>
+              <div class="grid grid-cols-2 gap-3">
+                <div
+                  class="gallery-tile"
+                  style="
+                    background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80');
+                  "
+                ></div>
+                <div
+                  class="gallery-tile"
+                  style="
+                    background-image: url('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=800&q=80');
+                  "
+                ></div>
+                <div
+                  class="gallery-tile"
+                  style="
+                    background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80');
+                  "
+                ></div>
+                <div
+                  class="gallery-tile"
+                  style="
+                    background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');
+                  "
+                ></div>
+              </div>
+              <p class="text-slate-300 text-sm mt-4">
+                Swap any tile background URL with your images (JPG/PNG/WebP).
+                For a local asset, place it in a
+                <code class="code-inline">media/</code> folder and set
+                <code class="code-inline"
+                  >background-image:url('media/your-photo.jpg')</code
+                >.
+              </p>
+            </div> -->
+          </div>
         </section>
 
         <!-- 6. Contact Section (Contact Me) -->
         <section id="contact" class="py-16 md:py-24">
-            <h2 class="section-title">Contact</h2>
-            <p class="text-center text-slate-300 mb-8 max-w-xl mx-auto">
-                Open to new projects, roles, and collaborations. Let’s ship better software together.
-            </p>
-            <div class="glass-card max-w-xl mx-auto">
-                <form id="contact-form" action="mailto:ahmetdem6325@gmail.com" method="GET" enctype="text/plain" class="space-y-5">
-                    <div>
-                        <label for="name" class="form-label">Your Name</label>
-                        <input type="text" name="subject" id="name" placeholder="Your Full Name" required class="form-input">
-                    </div>
-                    <div>
-                        <label for="email" class="form-label">Your Email</label>
-                        <input type="email" name="user_email" id="email" placeholder="example@mail.com" required class="form-input">
-                    </div>
-                    <div>
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" name="body" rows="4" placeholder="Write your message here..." required class="form-input"></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary w-full">
-                        Send Message
-                    </button>
-                    <div id="success-message" class="mail-success-message">
-                        Thank you! Your email client has been launched.
-                    </div>
-                </form>
-            </div>
+          <h2 class="section-title">Contact</h2>
+          <p class="text-center text-slate-300 mb-8 max-w-xl mx-auto">
+            Open to new projects, roles, and collaborations. Let’s ship better
+            software together.
+          </p>
+          <div class="glass-card max-w-xl mx-auto">
+            <form
+              id="contact-form"
+              action="mailto:ahmetdem6325@gmail.com"
+              method="GET"
+              enctype="text/plain"
+              class="space-y-5"
+            >
+              <div>
+                <label for="name" class="form-label">Your Name</label>
+                <input
+                  type="text"
+                  name="subject"
+                  id="name"
+                  placeholder="Your Full Name"
+                  required
+                  class="form-input"
+                />
+              </div>
+              <div>
+                <label for="email" class="form-label">Your Email</label>
+                <input
+                  type="email"
+                  name="user_email"
+                  id="email"
+                  placeholder="example@mail.com"
+                  required
+                  class="form-input"
+                />
+              </div>
+              <div>
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  id="message"
+                  name="body"
+                  rows="4"
+                  placeholder="Write your message here..."
+                  required
+                  class="form-input"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full">
+                Send Message
+              </button>
+              <div id="success-message" class="mail-success-message">
+                Thank you! Your email client has been launched.
+              </div>
+            </form>
+          </div>
         </section>
-
-        </div>
+      </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900/80 border-t border-white/10 text-white py-6 mt-12 backdrop-blur">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-300">
-            <p>&copy; 2025 Ahmet Demir. Engineered with quality first.</p>
-        </div>
+    <footer
+      class="bg-slate-900/80 border-t border-white/10 text-white py-6 mt-12 backdrop-blur"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-300"
+      >
+        <p>&copy; 2025 Ahmet Demir. Engineered with quality first.</p>
+      </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+      // Mobile Menu Toggle
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobile-menu");
+          menu.classList.toggle("hidden");
         });
 
-        // Form Submission Logic (using mailto: protocol)
-        const form = document.getElementById('contact-form');
-        const successMessage = document.getElementById('success-message');
+      // Form Submission Logic (using mailto: protocol)
+      const form = document.getElementById("contact-form");
+      const successMessage = document.getElementById("success-message");
 
-        form.addEventListener('submit', function() {
-            const userEmail = document.getElementById('email').value;
-            const subject = encodeURIComponent(`Inquiry from Portfolio - ${document.getElementById('name').value}`);
-            const messageBody = encodeURIComponent(`Sender Email: ${userEmail}\n\nMessage:\n${document.getElementById('message').value}`);
-            
-            this.action = `mailto:ahmetdem6325@gmail.com?subject=${subject}&body=${messageBody}`;
+      form.addEventListener("submit", function () {
+        const userEmail = document.getElementById("email").value;
+        const subject = encodeURIComponent(
+          `Inquiry from Portfolio - ${document.getElementById("name").value}`
+        );
+        const messageBody = encodeURIComponent(
+          `Sender Email: ${userEmail}\n\nMessage:\n${
+            document.getElementById("message").value
+          }`
+        );
 
-            setTimeout(() => {
-                form.reset();
-                successMessage.style.display = 'block';
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-            }, 100);
-        });
+        this.action = `mailto:ahmetdem6325@gmail.com?subject=${subject}&body=${messageBody}`;
+
+        setTimeout(() => {
+          form.reset();
+          successMessage.style.display = "block";
+          setTimeout(() => {
+            successMessage.style.display = "none";
+          }, 5000);
+        }, 100);
+      });
     </script>
-</body>
+  </body>
 </html>
