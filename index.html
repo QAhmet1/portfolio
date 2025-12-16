@@ -173,27 +173,32 @@
                 </div>
               </div>
             </div>
-            <div class="relative group">
+            <div class="relative group max-w-sm mx-auto">
               <div class="profile-card">
                 <div
                   class="absolute -inset-0.5 bg-gradient-to-r from-blue-500/60 via-indigo-500/60 to-cyan-500/60 blur-2xl opacity-60 group-hover:opacity-90 transition"
                 ></div>
+
                 <div
-                  class="relative bg-slate-900/80 border border-white/10 rounded-3xl p-6 shadow-2xl"
+                  class="relative bg-slate-900/80 border border-white/10 rounded-3xl p-8 shadow-2xl flex flex-col items-center"
                 >
-                  <img
-                    src="images\profile.jpg"
-                    alt="Profile Photo of Ahmet Demir"
-                    class="w-40 h-40 rounded-2xl mx-auto mb-6 object-cover shadow-xl border border-white/10"
-                    onerror="this.onerror=null; this.src='https://via.placeholder.com/200x200.png?text=Ahmet+Demir';"
-                  />
+                  <div class="w-32 h-32 md:w-40 md:h-40 mb-6 relative">
+                    <img
+                      src="images/profile.jpg"
+                      alt="Profile Photo of Ahmet Demir"
+                      class="w-full h-full rounded-2xl object-cover object-top shadow-xl border border-white/10"
+                      onerror="this.onerror=null; this.src='https://via.placeholder.com/200x200.png?text=Ahmet+Demir';"
+                    />
+                  </div>
+
                   <p
-                    class="text-sm text-blue-200 uppercase tracking-[0.2em] text-center mb-2"
+                    class="text-sm text-blue-200 uppercase tracking-[0.2em] text-center mb-3"
                   >
                     Quality in Motion
                   </p>
+
                   <p
-                    class="text-center text-slate-200 text-base leading-relaxed"
+                    class="text-center text-slate-300 text-sm md:text-base leading-relaxed"
                   >
                     I orchestrate end-to-end automation, embed QA into delivery
                     pipelines, and coach teams to ship confidently with
@@ -324,10 +329,23 @@
                 <span class="timeline-date">Jan 2025 - Present</span>
               </div>
               <ul class="timeline-list">
-                 <li>Architected and built test automation frameworks from scratch for two major projects, integrating WDIO/Appium (Mobile) and Cypress (Web) using JavaScript.</li>
-                 <li>Integrated the frameworks with GitHub Actions to establish a robust CI/CD pipeline, boosting release quality and velocity.</li>
-                 <li>Implemented parallel test execution to optimize suite runtime and achieve faster feedback cycles.</li>
-                 <li>Conducted performance and load testing using K6, visualized key metrics in Grafana, and delivered actionable reports.</li>
+                <li>
+                  Architected and built test automation frameworks from scratch
+                  for two major projects, integrating WDIO/Appium (Mobile) and
+                  Cypress (Web) using JavaScript.
+                </li>
+                <li>
+                  Integrated the frameworks with GitHub Actions to establish a
+                  robust CI/CD pipeline, boosting release quality and velocity.
+                </li>
+                <li>
+                  Implemented parallel test execution to optimize suite runtime
+                  and achieve faster feedback cycles.
+                </li>
+                <li>
+                  Conducted performance and load testing using K6, visualized
+                  key metrics in Grafana, and delivered actionable reports.
+                </li>
               </ul>
             </div>
             <div class="timeline-item">
@@ -339,40 +357,70 @@
                 <span class="timeline-date">Feb 2023 - Feb 2025</span>
               </div>
               <ul class="timeline-list">
-                 <li>Maximized test coverage by developing and executing comprehensive test plans and cases.</li>
-                 <li>Reduced MTTR by collaborating closely with developers to identify and resolve issues early.</li>
-                 <li>Tracked and reported key QA metrics (defect density, open defects) to drive informed decisions.</li>
-                 <li>Conducted rigorous regression testing to validate fixes and ensure release reliability.</li>
+                <li>
+                  Maximized test coverage by developing and executing
+                  comprehensive test plans and cases.
+                </li>
+                <li>
+                  Reduced MTTR by collaborating closely with developers to
+                  identify and resolve issues early.
+                </li>
+                <li>
+                  Tracked and reported key QA metrics (defect density, open
+                  defects) to drive informed decisions.
+                </li>
+                <li>
+                  Conducted rigorous regression testing to validate fixes and
+                  ensure release reliability.
+                </li>
               </ul>
             </div>
 
             <div class="timeline-item">
               <div class="timeline-header">
                 <div>
-                   <h3 class="timeline-role">QA Engineer</h3>
-                   <p class="timeline-company">Mersys · Frankfurt, Germany</p>
+                  <h3 class="timeline-role">QA Engineer</h3>
+                  <p class="timeline-company">Mersys · Frankfurt, Germany</p>
                 </div>
-                 <span class="timeline-date">Jan 2021 - Feb 2023</span>
+                <span class="timeline-date">Jan 2021 - Feb 2023</span>
               </div>
               <ul class="timeline-list">
-                 <li>Expanded UI and API automation coverage for core learning modules, stabilizing nightly runs.</li>
-                 <li>Integrated suites into CI to fail builds on regressions and quarantine flaky tests.</li>
-                 <li>Partnered with developers to triage defects early and maintain low MTTR.</li>
-                 <li>Published concise quality reports summarizing risk, coverage, and release readiness.</li>
+                <li>
+                  Expanded UI and API automation coverage for core learning
+                  modules, stabilizing nightly runs.
+                </li>
+                <li>
+                  Integrated suites into CI to fail builds on regressions and
+                  quarantine flaky tests.
+                </li>
+                <li>
+                  Partnered with developers to triage defects early and maintain
+                  low MTTR.
+                </li>
+                <li>
+                  Published concise quality reports summarizing risk, coverage,
+                  and release readiness.
+                </li>
               </ul>
             </div>
 
             <div class="timeline-item">
               <div class="timeline-header">
                 <div>
-                   <h3 class="timeline-role">Mentor</h3>
-                   <p class="timeline-company">Techno Study</p>
+                  <h3 class="timeline-role">Mentor</h3>
+                  <p class="timeline-company">Techno Study</p>
                 </div>
-                 <span class="timeline-date">Apr 2022 - Oct 2023</span>
+                <span class="timeline-date">Apr 2022 - Oct 2023</span>
               </div>
               <ul class="timeline-list">
-                 <li>Spearheaded automation initiatives introducing modern frameworks, reducing regression time by 40%.</li>
-                 <li>Provided hands-on training on Selenium, Cucumber, TestNG, Postman, JMeter, and RestAssured.</li>
+                <li>
+                  Spearheaded automation initiatives introducing modern
+                  frameworks, reducing regression time by 40%.
+                </li>
+                <li>
+                  Provided hands-on training on Selenium, Cucumber, TestNG,
+                  Postman, JMeter, and RestAssured.
+                </li>
               </ul>
             </div>
             <div class="timeline-item">
@@ -452,7 +500,8 @@
               <ul class="project-points">
                 <li>API flows against DummyJSON demo API.</li>
                 <li>
-                  Custom fixtures that expose pages/clients as reusable commands.
+                  Custom fixtures that expose pages/clients as reusable
+                  commands.
                 </li>
                 <li>
                   Allure reporting + Playwright HTML report with one command to
@@ -482,25 +531,31 @@
               <div class="project-head">
                 <div>
                   <h3 class="project-title">Cypress Test Automation</h3>
-                  <p class="project-subtitle">UI and API automation with Cypress, Page Object Model, and rich reporting.</p>
+                  <p class="project-subtitle">
+                    UI and API automation with Cypress, Page Object Model, and
+                    rich reporting.
+                  </p>
                 </div>
                 <div class="project-links">
-                  <a href="https://github.com/QAhmet1/cypress" 
-                  target="_blank" 
-                  class="project-link">Repo</a>
+                  <a
+                    href="https://github.com/QAhmet1/cypress"
+                    target="_blank"
+                    class="project-link"
+                    >Repo</a
+                  >
                 </div>
               </div>
               <p class="project-body">
-               End-to-end coverage for demo web apps and APIs, with reusable fixtures and CI-friendly reports.
+                End-to-end coverage for demo web apps and APIs, with reusable
+                fixtures and CI-friendly reports.
               </p>
-               <ul class="project-points">
+              <ul class="project-points">
                 <li>API flows against DummyJSON demo API.</li>
                 <li>
-                  Custom fixtures that expose pages/clients as reusable commands.
+                  Custom fixtures that expose pages/clients as reusable
+                  commands.
                 </li>
-                <li>
-                  Allure reporting with one command to run and open.
-                </li>
+                <li>Allure reporting with one command to run and open.</li>
                 <li>
                   GitHub Actions workflow scheduled via cron (07:00 UTC daily)
                   and on push / PR.
@@ -524,37 +579,51 @@
             </div>
             <!-- End op project template -->
 
-             <!-- Template for another project -->
+            <!-- Template for another project -->
             <div class="project-card">
               <div class="project-head">
                 <div>
-                  <h3 class="project-title">Postman API Test Automation with Newman & CI/CD</h3>
-                  <p class="project-subtitle">Automated API testing suite with Postman, Newman, and GitHub Actions integration for robust backend validation.</p>
+                  <h3 class="project-title">
+                    Postman API Test Automation with Newman & CI/CD
+                  </h3>
+                  <p class="project-subtitle">
+                    Automated API testing suite with Postman, Newman, and GitHub
+                    Actions integration for robust backend validation.
+                  </p>
                 </div>
                 <div class="project-links">
-                  <a href="https://github.com/QAhmet1/api-automation" 
-                  target="_blank" 
-                  class="project-link">Repo</a>
+                  <a
+                    href="https://github.com/QAhmet1/api-automation"
+                    target="_blank"
+                    class="project-link"
+                    >Repo</a
+                  >
                 </div>
               </div>
               <p class="project-body">
-               End-to-end coverage for Restful-Booker API, featuring dynamic data handling and continuous integration.
+                End-to-end coverage for Restful-Booker API, featuring dynamic
+                data handling and continuous integration.
               </p>
-               <ul class="project-points">
-                <li>Comprehensive API flows covering Authentication, Booking Management (CRUD), and Dynamic Filtering.</li>
+              <ul class="project-points">
                 <li>
-                  Dynamic Data Generation using Postman pre-request scripts and variables to ensure unique test data for every run.
+                  Comprehensive API flows covering Authentication, Booking
+                  Management (CRUD), and Dynamic Filtering.
                 </li>
                 <li>
-                  Sequential Test Execution with environment variable sharing across requests (e.g., Auth Token and Booking ID persistence).
+                  Dynamic Data Generation using Postman pre-request scripts and
+                  variables to ensure unique test data for every run.
                 </li>
                 <li>
-                  Automated Execution via Newman CLI with custom HTML reporting for clear visibility of test results.
+                  Sequential Test Execution with environment variable sharing
+                  across requests (e.g., Auth Token and Booking ID persistence).
                 </li>
-                GitHub Actions Workflow integrated for Continuous Integration, triggered automatically on every push or pull request.
                 <li>
-
+                  Automated Execution via Newman CLI with custom HTML reporting
+                  for clear visibility of test results.
                 </li>
+                GitHub Actions Workflow integrated for Continuous Integration,
+                triggered automatically on every push or pull request.
+                <li></li>
               </ul>
               <div class="project-media">
                 <!-- Replace this image or swap for <video> / <iframe> -->
@@ -584,8 +653,8 @@
               <div class="flex items-center justify-between mb-4">
                 <h3 class="text-xl font-semibold text-white">Featured Demo</h3>
                 <span class="text-xs text-slate-400"
-                  >Replace the video link </span
-                >
+                  >Replace the video link
+                </span>
               </div>
               <div
                 class="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-xl"
@@ -600,9 +669,7 @@
               </div>
               <p class="text-slate-300 text-sm mt-4">
                 description
-                <code class="code-inline"
-                  >&lt;&gt;</code
-                >
+                <code class="code-inline">&lt;&gt;</code>
               </p>
             </div>
             <!-- <div class="glass-card h-full">
