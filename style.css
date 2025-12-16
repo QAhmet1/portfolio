@@ -409,6 +409,126 @@ body {
   gap: 0.15rem;
 }
 
+/* Profile Social Links */
+.profile-social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  color: #cbd5e1;
+  transition: all 150ms ease;
+  text-decoration: none;
+}
+
+.profile-social-link:hover {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.profile-social-link svg {
+  transition: transform 150ms ease;
+}
+
+.profile-social-link:hover svg {
+  transform: scale(1.1);
+}
+
+/* Certification Cards */
+.certification-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.25);
+}
+
+.certification-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 25px 40px rgba(99, 102, 241, 0.2);
+}
+
+.certification-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.certification-icon {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.15));
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.certification-title {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.certification-issuer {
+  color: #93c5fd;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.certification-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.certification-date {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.certification-description {
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.certification-link {
+  display: inline-flex;
+  align-items: center;
+  color: #60a5fa;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 150ms ease, transform 150ms ease;
+  margin-top: 0.25rem;
+}
+
+.certification-link:hover {
+  color: #93c5fa;
+  transform: translateX(2px);
+}
+
+.certification-link svg {
+  transition: transform 150ms ease;
+}
+
+.certification-link:hover svg {
+  transform: translateX(2px);
+}
+
 @media (max-width: 768px) {
   .timeline-header {
     flex-direction: column;
@@ -417,6 +537,16 @@ body {
 
   .timeline-date {
     margin-top: 0.3rem;
+  }
+
+  .certification-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .certification-icon {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
 
