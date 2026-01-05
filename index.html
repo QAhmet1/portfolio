@@ -403,7 +403,27 @@
               </div>
             </div>
           </div>
+
+          <section id="about">
+    <div class="max-w-4xl mx-auto px-4 mt-10">
+        <div class="terminal-container font-mono text-xs md:text-sm shadow-2xl rounded-lg overflow-hidden border border-gray-700/50">
+            <div class="bg-gray-800/80 px-4 py-2 flex items-center justify-between border-b border-gray-700">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                </div>
+                <div class="text-gray-400 text-[10px] uppercase tracking-widest">Automation-Engine-v1.0</div>
+            </div>
+            <div class="bg-black/90 p-6 h-72 overflow-y-auto" id="terminal-content">
+    <div id="typed-text" class="leading-relaxed"></div>
+    <span class="inline-block w-2 h-4 bg-green-500 ml-1 animate-pulse align-middle"></span>
+</div>
+        </div>
+    </div>
+</section>
         </section>
+
 
         <!-- 4. Skills Section -->
         <section id="skills" class="py-16 md:py-24">
@@ -1472,12 +1492,16 @@
 
     <script>
       // Mobile Menu Toggle Logic
-      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn"); // Ensure this ID matches your HTML
+const mobileMenu = document.getElementById("mobileMenu");       // Ensure this ID matches your HTML
 
-      mobileMenuBtn.addEventListener("click", () => {
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
-      });
+    });
+} else {
+    console.warn("Mobile menu elements not found. Skipping menu initialization.");
+}
 
       // Form Submission Logic using Formspree (AJAX)
       const form = document.getElementById("contact-form");
@@ -1559,6 +1583,58 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+/**
+ * Terminal Data Configuration
+ * All explanations are in English as requested.
+ */
+const terminalData = [
+    { text: "adm@portfolio:~$ init --suite regression-full", color: "line-command", delay: 500 },
+    { text: "› Initializing Playwright Automation Engine...", color: "line-info", delay: 800 },
+    { text: "› Checking CI/CD environment (GitHub Actions)...", color: "line-info", delay: 600 },
+    { text: "› Running: LoginFlow.spec.ts [Chromium]", color: "line-warning", delay: 700 },
+    { text: "  ✔ Success: User Authentication (1.4s)", color: "line-success", delay: 400 },
+    { text: "› Running: CheckoutProcess.spec.ts [Webkit]", color: "line-warning", delay: 900 },
+    { text: "  ✔ Success: Payment Gateway Integration (2.1s)", color: "line-success", delay: 500 },
+    { text: "› Running: ApiValidation.spec.ts [REST-Assured]", color: "line-warning", delay: 600 },
+    { text: "  ✔ Success: Endpoints Validated (0.8s)", color: "line-success", delay: 300 },
+    { text: "---------------------------------------------", color: "text-gray-600", delay: 200 },
+    { text: "TEST SUMMARY:", color: "line-command", delay: 400 },
+    { text: "TOTAL: 3 passed, 0 failed (4.3s)", color: "line-success font-bold", delay: 500 },
+    { text: "› Deployment Status: Stable ✅", color: "line-info", delay: 1000 },
+    { text: "adm@portfolio:~$ ready_to_hire_me? --yes", color: "line-command", delay: 2000 }
+];
+
+/**
+ * startTerminal: Core animation logic.
+ * Encapsulated in a separate function for better maintainability.
+ */
+async function startTerminal() {
+    const container = document.getElementById("typed-text");
+    const body = document.getElementById("terminal-content");
+    
+    if (!container || !body) return;
+
+    container.innerHTML = ""; 
+
+    for (const line of terminalData) {
+        await new Promise(res => setTimeout(res, line.delay));
+        const p = document.createElement("p");
+        p.className = `mb-1 ${line.color}`;
+        p.innerText = line.text;
+        container.appendChild(p);
+        body.scrollTop = body.scrollHeight;
+    }
+}
+
+/**
+ * Self-invoking start to bypass potential script-halting errors below.
+ */
+try {
+    startTerminal();
+} catch (e) {
+    console.error("Terminal failed to start:", e);
+}
     </script>
   </body>
 </html>

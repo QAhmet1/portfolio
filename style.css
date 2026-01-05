@@ -558,3 +558,26 @@ body {
     min-height: 220px;
 }
 
+.terminal-container {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease;
+}
+
+.terminal-container:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.5); /* Blue glow on hover */
+}
+
+.line-success { color: #4ade80; } /* Green */
+.line-info { color: #60a5fa; }    /* Blue */
+.line-warning { color: #fbbf24; } /* Yellow */
+.line-command { color: #ffffff; font-weight: bold; }
+
+
+/* Terminal Text Colors */
+.line-command { color: #ffffff; font-weight: bold; }
+.line-info { color: #60a5fa; }
+.line-success { color: #4ade80; }
+.line-warning { color: #fbbf24; }
+.text-gray-600 { color: #4b5563; }
