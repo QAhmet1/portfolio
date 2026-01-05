@@ -550,3 +550,8 @@ body {
   }
 }
 
+.project-media img {
+    background: #1e293b; /* Görsel yüklenene kadar koyu bir zemin */
+    min-height: 220px;
+}
+
