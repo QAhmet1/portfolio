@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AHMET DEMIR - SDET & QA Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Ahmet Demir, a Senior SDET and QA Engineer specialized in automation frameworks (Playwright, Cypress, Appium) and CI/CD pipelines." />
+<meta name="keywords" content="SDET, QA Engineer, Automation, Playwright, Cypress, Appium, Java, Python, JavaScript, CI/CD" />
+<meta name="author" content="Ahmet Demir" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://kullaniciadi.github.io/repo-adi/" /> <meta property="og:title" content="Ahmet Demir | SDET & QA Automation Engineer" />
+<meta property="og:description" content="Experienced QA Engineer building reliable releases with automation, observability, and speed." />
+<meta property="og:image" content="https://kullaniciadi.github.io/repo-adi/images/portfolio-preview.png" /> <meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Ahmet Demir | SDET & QA Automation Engineer" />
+<meta property="twitter:description" content="Experienced QA Engineer building reliable releases with automation, observability, and speed." />
+<meta property="twitter:image" content="https://kullaniciadi.github.io/repo-adi/images/portfolio-preview.png" />
+
+<link rel="icon" type="image/png" href="images/favicon.png" />
     <!-- Tailwind CSS CDN for utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link to custom styles -->
@@ -1525,20 +1538,27 @@
         });
       }
 
-      // Smooth Scroll for Navigation Links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-              e.preventDefault();
-              const target = document.querySelector(this.getAttribute('href'));
-              if (target) {
-                  target.scrollIntoView({
-                      behavior: 'smooth'
-                  });
-                  // Close mobile menu if open
-                  mobileMenu.classList.add("hidden");
-              }
-          });
+      // Smooth Scroll Logic
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return; // Sadece # olan linkleri geç
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      e.preventDefault(); // Varsayılan hızlı atlamayı engelle
+      targetElement.scrollIntoView({
+        behavior: 'smooth'
       });
+
+      // Mobil menü açıksa kapat
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+    }
+  });
+});
     </script>
   </body>
 </html>
