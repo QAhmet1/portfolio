@@ -674,3 +674,113 @@ body {
 .glow-text {
     text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
 }
+
+/**
+ * Creative Hero(Home) Styles
+ */
+.stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.creative-btn-primary {
+    background: #3b82f6;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
+    transition: all 0.3s ease;
+}
+
+.creative-btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.6);
+}
+
+.creative-btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.creative-btn-outline:hover {
+    background: white;
+    color: black;
+}
+/* Custom Profile Card Styling */
+.profile-card-wrapper {
+    perspective: 1000px;
+}
+
+.profile-card-inner {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card-inner:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.profile-image-container {
+    position: relative;
+    padding: 6px;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(168, 85, 247, 0.5));
+}
+
+.profile-image-container img {
+    border-radius: 1.25rem;
+    transition: transform 0.5s ease;
+}
+
+.profile-card-inner:hover img {
+    transform: scale(1.05);
+}
+
+/* Profile Social Link - Standard CSS Version */
+.profile-social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem; /* gap-1 */
+    padding: 0.5rem; /* p-2 */
+    border-radius: 0.75rem; /* rounded-xl */
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms; /* transition-all duration-300 */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+}
+
+.profile-social-link:hover {
+    background-color: rgba(59, 130, 246, 0.1); /* bg-blue-500/10 */
+    border-color: rgba(59, 130, 246, 0.3); /* border-blue-500/30 */
+    color: #60a5fa; /* text-blue-400 */
+    transform: translateY(-3px); /* transform translateY(-3px) */
+}
