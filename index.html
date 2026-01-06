@@ -315,8 +315,8 @@
 
     </div>
   </div>
-</section>
-          <section id="about">
+
+        <section id="about">
     <div class="max-w-4xl mx-auto px-4 mt-10">
         <div class="terminal-container font-mono text-xs md:text-sm shadow-2xl rounded-lg overflow-hidden border border-gray-700/50">
             <div class="bg-gray-800/80 px-4 py-2 flex items-center justify-between border-b border-gray-700">
@@ -327,14 +327,26 @@
                 </div>
                 <div class="text-gray-400 text-[10px] uppercase tracking-widest">Automation-Engine-v1.0</div>
             </div>
-            <div class="bg-black/90 p-6 h-72 overflow-y-auto" id="terminal-content">
-    <div id="typed-text" class="leading-relaxed"></div>
-    <span class="inline-block w-2 h-4 bg-green-500 ml-1 animate-pulse align-middle"></span>
-</div>
+
+            <div class="bg-black/90 p-6 h-80 overflow-y-auto" id="terminal-body" onclick="document.getElementById('terminal-input').focus()">
+                <div id="terminal-history" class="space-y-2 text-slate-300">
+                    <div>Welcome to Ahmet's SDET Console. Type <span class="text-yellow-400">'help'</span> to see available commands.</div>
+                </div>
+                
+                <div class="flex items-center gap-2 mt-2 text-green-500">
+                    <span class="shrink-0">➜</span>
+                    <span class="text-blue-400 shrink-0">~/portfolio</span>
+                    <input type="text" id="terminal-input" 
+                           class="bg-transparent border-none outline-none text-white w-full font-mono p-0 m-0 focus:ring-0" 
+                           spellcheck="false" 
+                           autocomplete="off"
+                           autofocus>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-        </section>
+       
 
 
         <!-- 4. Skills Section -->
@@ -1013,6 +1025,56 @@ async function startTerminal() {
         body.scrollTop = body.scrollHeight;
     }
 }
+document.getElementById('terminal-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        const input = this.value.trim().toLowerCase();
+        const history = document.getElementById('terminal-history');
+        
+        // Add user command to history
+        const commandLine = document.createElement('div');
+        commandLine.innerHTML = `<span class="text-green-500">➜</span> <span class="text-blue-400">~/portfolio</span> <span class="text-white">${this.value}</span>`;
+        history.appendChild(commandLine);
+
+        // Command processing logic
+        let response = "";
+        switch(input) {
+            case 'help':
+                response = "Available commands: <br> - <span class='text-blue-400'>skills</span>: View technical stack <br> - <span class='text-blue-400'>experience</span>: Show career path <br> - <span class='text-blue-400'>clear</span>: Reset terminal <br> - <span class='text-blue-400'>contact</span>: Get social links";
+                break;
+            case 'skills':
+                response = "Core Stack: Java, Python,JavaScript, TS, Selenium, Playwright, Cypress, K6, Jenkins, SQL.";
+                break;
+            case 'experience':
+                response = "Latest: QA Engineer @ Amega | Prev: SDET @ BDSwiss, Mersys.";
+                break;
+            case 'contact':
+                response = "Email: ahmetdem6325@gmail.com | LinkedIn: https://www.linkedin.com/in/demirahmet6325/";
+                break;
+            case 'clear':
+                history.innerHTML = "Terminal cleared. Type 'help' for commands.";
+                this.value = "";
+                return;
+            case '':
+                response = "";
+                break;
+            default:
+                response = `Command not found: ${input}. Type <span class="text-yellow-400">'help'</span> for assistance.`;
+        }
+
+        // Add response to history
+        if(response !== "") {
+            const responseLine = document.createElement('div');
+            responseLine.className = "text-slate-400 pl-4 border-l border-slate-800 my-1";
+            responseLine.innerHTML = response;
+            history.appendChild(responseLine);
+        }
+
+        // Clean up and scroll
+        this.value = "";
+        const body = document.getElementById('terminal-body');
+        body.scrollTop = body.scrollHeight;
+    }
+});
 
 /**
  * Self-invoking start to bypass potential script-halting errors below.
