@@ -854,3 +854,46 @@ body {
     margin-bottom: 1.25rem;
     line-height: 1.6;
 }
+.cert-card-inner {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.8));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cert-card:hover .cert-card-inner {
+    transform: translateY(-10px);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.2);
+}
+
+.cert-badge {
+    width: 60px;
+    height: 60px;
+    background: rgba(59, 130, 246, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.cert-verify-btn {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: white;
+    background: rgba(59, 130, 246, 0.2);
+    padding: 6px 14px;
+    border-radius: 100px;
+    transition: all 0.3s;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.cert-verify-btn:hover {
+    background: #3b82f6;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
