@@ -585,6 +585,104 @@
     </div>
   </div>
 </section>
+<!-- Projects -->
+<section id="projects" class="py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="section-title">Selected Case Studies</h2>
+    <p class="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
+      Showcasing technical depth in QA Automation: From E2E ecosystems to large-scale data analysis and performance engineering.
+    </p>
+
+    <div class="space-y-8 mb-16">
+      
+      <div class="card-modern p-8 border-l-4 border-l-blue-500">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-3/5">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="tag-modern">E2E Ecosystem</span>
+              <h3 class="text-2xl font-bold text-white leading-tight">Advanced Playwright Suite</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6 text-xs">
+              <div class="bg-red-500/5 p-3 rounded-xl border border-red-500/10"><p class="text-red-400 font-bold mb-1 uppercase">Challenge</p><p class="text-slate-300">Legacy regression took 3+ hours with high flakiness.</p></div>
+              <div class="bg-blue-500/5 p-3 rounded-xl border border-blue-500/10"><p class="text-blue-400 font-bold mb-1 uppercase">Solution</p><p class="text-slate-300">Implemented parallel POM architecture & custom fixtures.</p></div>
+              <div class="bg-green-500/5 p-3 rounded-xl border border-green-500/10"><p class="text-green-400 font-bold mb-1 uppercase">Impact</p><p class="text-slate-300">Reduced execution time to 15 mins (92% improvement).</p></div>
+            </div>
+            <div class="flex gap-4">
+              <a href="https://github.com/QAhmet1/Playwright_project" target="_blank" class="text-blue-400 font-bold flex items-center gap-1 hover:underline">View Code <i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="md:w-2/5"><img src="images/playwright.png" class="rounded-xl opacity-80 border border-white/10" alt="Playwright Dashboard"></div>
+        </div>
+      </div>
+
+      <div class="card-modern p-8 border-l-4 border-l-yellow-500">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-3/5">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="tag-modern">Performance Engineering</span>
+              <h3 class="text-2xl font-bold text-white leading-tight">K6 & Grafana Monitoring Stack</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6 text-xs">
+              <div class="bg-red-500/5 p-3 rounded-xl border border-red-500/10"><p class="text-red-400 font-bold mb-1 uppercase">Challenge</p><p class="text-slate-300">Unpredictable crashes during peak user traffic.</p></div>
+              <div class="bg-blue-500/5 p-3 rounded-xl border border-blue-500/10"><p class="text-blue-400 font-bold mb-1 uppercase">Solution</p><p class="text-slate-300">Containerized load tests with real-time observability.</p></div>
+              <div class="bg-green-500/5 p-3 rounded-xl border border-green-500/10"><p class="text-green-400 font-bold mb-1 uppercase">Impact</p><p class="text-slate-300">Identified 3 memory leaks before production release.</p></div>
+            </div>
+            <a href="https://github.com/QAhmet1/K6-Performance-Testing" target="_blank" class="text-yellow-500 font-bold flex items-center gap-1 hover:underline">View Repository <i class="fab fa-github"></i></a>
+          </div>
+          <div class="md:w-2/5"><img src="images/k6-performance-testing.png" class="rounded-xl opacity-80 border border-white/10" alt="K6 Dashboards"></div>
+        </div>
+      </div>
+
+      <div class="card-modern p-8 border-l-4 border-l-green-500">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-3/5">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="tag-modern">Data Analysis</span>
+              <h3 class="text-2xl font-bold text-white leading-tight">3.2M+ User Activity Analysis</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6 text-xs">
+              <div class="bg-red-500/5 p-3 rounded-xl border border-red-500/10"><p class="text-red-400 font-bold mb-1 uppercase">Challenge</p><p class="text-slate-300">Correlating massive datasets for churn patterns.</p></div>
+              <div class="bg-blue-500/5 p-3 rounded-xl border border-blue-500/10"><p class="text-blue-400 font-bold mb-1 uppercase">Solution</p><p class="text-slate-300">Optimized PostgreSQL queries using CTEs & indexing.</p></div>
+              <div class="bg-green-500/5 p-3 rounded-xl border border-green-500/10"><p class="text-green-400 font-bold mb-1 uppercase">Impact</p><p class="text-slate-300">Extracted actionable engagement metrics for 3M+ users.</p></div>
+            </div>
+            <a href="https://github.com/QAhmet1/PostgreSQL-Activity-Analysis" target="_blank" class="text-green-400 font-bold flex items-center gap-1 hover:underline">View Data Insights <i class="fab fa-github"></i></a>
+          </div>
+          <div class="md:w-2/5"><img src="images/sql.png" class="rounded-xl opacity-80 border border-white/10" alt="SQL Analysis"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <h4 class="text-slate-500 uppercase tracking-[0.2em] text-[11px] font-bold mb-8 border-b border-white/5 pb-2">Technical Repository Hub</h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <div class="card-modern p-6 flex flex-col">
+        <h3 class="text-white font-bold mb-2">Cypress Test Suite</h3>
+        <p class="text-xs text-slate-400 mb-4 flex-grow">E2E coverage for demo web apps with custom fixtures and Allure integration.</p>
+        <div class="flex gap-4"><a href="https://github.com/QAhmet1/cypress" class="text-xs text-blue-400 hover:text-white">Repo <i class="fab fa-github"></i></a></div>
+      </div>
+
+      <div class="card-modern p-6 flex flex-col">
+        <h3 class="text-white font-bold mb-2">Postman & Newman</h3>
+        <p class="text-xs text-slate-400 mb-4 flex-grow">Automated API validation suite with Restful-Booker and GitHub Actions.</p>
+        <div class="flex gap-4"><a href="https://github.com/QAhmet1/api-automation" class="text-xs text-blue-400 hover:text-white">Repo <i class="fab fa-github"></i></a></div>
+      </div>
+
+      <div class="card-modern p-6 flex flex-col">
+        <h3 class="text-white font-bold mb-2">WebDriverIO Mobile</h3>
+        <p class="text-xs text-slate-400 mb-4 flex-grow">Cross-platform (Android/iOS) mobile automation with Page Object Model.</p>
+        <div class="flex gap-4"><a href="https://github.com/QAhmet1/wdio-appium" class="text-xs text-blue-400 hover:text-white">Repo <i class="fab fa-github"></i></a></div>
+      </div>
+
+      <div class="card-modern p-6 flex flex-col">
+        <h3 class="text-white font-bold mb-2">Pytest & Appium</h3>
+        <p class="text-xs text-slate-400 mb-4 flex-grow">Scalable Python-based mobile automation with dynamic driver management.</p>
+        <div class="flex gap-4"><a href="https://github.com/QAhmet1/Pytest-Appium" class="text-xs text-blue-400 hover:text-white">Repo <i class="fab fa-github"></i></a></div>
+      </div>
+
+      </div>
+  </div>
+</section>
 
         <!-- 7. Certifications Section -->
         <section id="certifications" class="py-16 md:py-24">
