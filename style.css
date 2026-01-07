@@ -897,3 +897,41 @@ body {
     background: #3b82f6;
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
+
+
+/* CSS Explanations:
+   - Added will-change to optimize GPU rendering for smoother movement.
+   - Removed 'translateY' from hover to prevent jumping issues.
+   - Pointer-events: none on inner elements ensures the mouse target stays stable.
+*/
+
+.cert-card {
+    perspective: 1000px;
+    /* Keeps the card layout stable */
+    display: block; 
+}
+
+.cert-card-inner {
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.7));
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease; /* Faster transition for movement */
+    will-change: transform; /* Hint to browser for optimization */
+    pointer-events: auto;
+}
+
+/* We handle the tilt via JS, so we only use CSS for visual polish */
+.cert-card:hover .cert-card-inner {
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.3);
+}
+
+/* Prevent text/tags from capturing mouse events during movement */
+.cert-card-inner * {
+    pointer-events: none;
+}
+
+/* Ensure the Verify button still works */
+.cert-verify-btn {
+    pointer-events: auto !important;
+}
