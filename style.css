@@ -1012,3 +1012,18 @@ body {
     transform: translateY(-5px);
     border-color: rgba(59, 130, 246, 0.2);
 }
+/* Allure Integration Styles */
+.allure-wrapper {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.allure-wrapper:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* iframe loading skeleton or state */
+iframe {
+    background-color: #f8fafc; /* Standard Allure background */
+}
