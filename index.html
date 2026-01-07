@@ -40,6 +40,51 @@
       };
     </script>
   </head>
+ <div class="fixed bottom-8 right-8 z-50 group flex items-center">
+    <span class="absolute right-20 bg-blue-600 text-white text-[10px] font-bold py-2 px-4 rounded-lg 
+                 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none 
+                 translate-x-4 group-hover:translate-x-0 shadow-xl border border-blue-400/30 whitespace-nowrap uppercase tracking-widest">
+        Launch SDET Console
+    </span>
+    
+    <button id="terminal-trigger" class="relative w-16 h-16 bg-blue-600 text-white rounded-full shadow-2xl 
+                 hover:scale-110 active:scale-95 transition-all flex items-center justify-center 
+                 border-2 border-blue-400/30 overflow-hidden">
+        <i class="fas fa-terminal text-2xl"></i>
+        <div class="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+    </button>
+</div>
+
+<div id="terminal-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="w-full max-w-3xl bg-black rounded-lg overflow-hidden border border-gray-700 shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)]">
+        
+        <div class="bg-gray-800/90 px-4 py-2 flex items-center justify-between border-b border-gray-700">
+            <div class="flex gap-2">
+                <div id="terminal-close" class="group w-3 h-3 rounded-full bg-red-500 cursor-pointer flex items-center justify-center">
+                    <i class="fas fa-times text-[8px] text-red-900 opacity-0 group-hover:opacity-100"></i>
+                </div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <div class="text-gray-400 text-[10px] uppercase font-mono tracking-widest">SDET-System-v2.0</div>
+        </div>
+
+        <div id="terminal-screen" class="p-6 h-[400px] overflow-y-auto font-mono text-sm scrollbar-hide">
+            <div class="text-blue-400 mb-2">● System initialized. Welcome, Ahmet Demir.</div>
+            <div class="text-slate-500 italic mb-4">Type 'help' to see available automation commands.</div>
+            
+            <div id="terminal-output" class="space-y-1"></div>
+            
+            <div class="flex items-center gap-2 mt-4">
+                <span class="text-green-500 shrink-0">➜</span>
+                <span class="text-blue-400 shrink-0">~/sdet</span>
+                <input type="text" id="terminal-input" 
+                       class="bg-transparent border-none outline-none text-white w-full p-0 focus:ring-0" 
+                       autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+</div>
   <body class="antialiased bg-slate-950 text-slate-50">
     <!-- 1. Header and Navigation (Sticky) -->
     <header
@@ -312,38 +357,8 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
-
-        <section id="about">
-    <div class="max-w-4xl mx-auto px-4 mt-10">
-        <div class="terminal-container font-mono text-xs md:text-sm shadow-2xl rounded-lg overflow-hidden border border-gray-700/50">
-            <div class="bg-gray-800/80 px-4 py-2 flex items-center justify-between border-b border-gray-700">
-                <div class="flex gap-2">
-                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                </div>
-                <div class="text-gray-400 text-[10px] uppercase tracking-widest">Automation-Engine-v1.0</div>
-            </div>
-
-            <div class="bg-black/90 p-6 h-80 overflow-y-auto" id="terminal-body" onclick="document.getElementById('terminal-input').focus()">
-                <div id="terminal-history" class="space-y-2 text-slate-300">
-                    <div>Welcome to Ahmet's SDET Console. Type <span class="text-yellow-400">'help'</span> to see available commands.</div>
-                </div>
-                
-                <div class="flex items-center gap-2 mt-2 text-green-500">
-                    <span class="shrink-0">➜</span>
-                    <span class="text-blue-400 shrink-0">~/portfolio</span>
-                    <input type="text" id="terminal-input" 
-                           class="bg-transparent border-none outline-none text-white w-full font-mono p-0 m-0 focus:ring-0" 
-                           spellcheck="false" 
-                           autocomplete="off"
-                           autofocus>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
        
@@ -996,109 +1011,133 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /**
- * Terminal Data Configuration
- * All explanations are in English as requested.
+ * Terminal Logic v2
+ * All comments and logic follow English standards.
  */
-const terminalData = [
-    { text: "adm@portfolio:~$ init --suite regression-full", color: "line-command", delay: 500 },
-    { text: "› Initializing Playwright Automation Engine...", color: "line-info", delay: 800 },
-    { text: "› Checking CI/CD environment (GitHub Actions)...", color: "line-info", delay: 600 },
-    { text: "› Running: LoginFlow.spec.ts [Chromium]", color: "line-warning", delay: 700 },
-    { text: "  ✔ Success: User Authentication (1.4s)", color: "line-success", delay: 400 },
-    { text: "› Running: CheckoutProcess.spec.ts [Webkit]", color: "line-warning", delay: 900 },
-    { text: "  ✔ Success: Payment Gateway Integration (2.1s)", color: "line-success", delay: 500 },
-    { text: "› Running: ApiValidation.spec.ts [REST-Assured]", color: "line-warning", delay: 600 },
-    { text: "  ✔ Success: Endpoints Validated (0.8s)", color: "line-success", delay: 300 },
-    { text: "---------------------------------------------", color: "text-gray-600", delay: 200 },
-    { text: "TEST SUMMARY:", color: "line-command", delay: 400 },
-    { text: "TOTAL: 3 passed, 0 failed (4.3s)", color: "line-success font-bold", delay: 500 },
-    { text: "› Deployment Status: Stable ✅", color: "line-info", delay: 1000 },
-    { text: "adm@portfolio:~$ ready_to_hire_me? --yes", color: "line-command", delay: 2000 }
+const terminalModal = document.getElementById('terminal-modal');
+const triggerBtn = document.getElementById('terminal-trigger');
+const closeBtn = document.getElementById('terminal-close');
+const terminalInput = document.getElementById('terminal-input');
+const terminalOutput = document.getElementById('terminal-output');
+const terminalScreen = document.getElementById('terminal-screen');
+
+const simulationSteps = [
+    { text: "Loading automation engine...", color: "text-slate-400", delay: 400 },
+    { text: "Scanning project directories...", color: "text-slate-400", delay: 600 },
+    { text: "Running health check on Playwright...", color: "text-yellow-500", delay: 500 },
+    { text: "Status: READY ✅", color: "text-green-500 font-bold", delay: 300 }
 ];
 
-/**
- * startTerminal: Core animation logic.
- * Encapsulated in a separate function for better maintainability.
- */
-async function startTerminal() {
-    const container = document.getElementById("typed-text");
-    const body = document.getElementById("terminal-content");
-    
-    if (!container || !body) return;
-
-    container.innerHTML = ""; 
-
-    for (const line of terminalData) {
-        await new Promise(res => setTimeout(res, line.delay));
-        const p = document.createElement("p");
-        p.className = `mb-1 ${line.color}`;
-        p.innerText = line.text;
-        container.appendChild(p);
-        body.scrollTop = body.scrollHeight;
+// 1. Simulation Executor
+async function runSimulation() {
+    terminalOutput.innerHTML = ""; // Clear previous session logs
+    for (const step of simulationSteps) {
+        await new Promise(resolve => setTimeout(resolve, step.delay));
+        const div = document.createElement('div');
+        div.className = step.color;
+        div.innerText = `› ${step.text}`;
+        terminalOutput.appendChild(div);
+        terminalScreen.scrollTop = terminalScreen.scrollHeight;
     }
 }
-document.getElementById('terminal-input').addEventListener('keydown', function(e) {
+
+// 2. Open Terminal
+triggerBtn.addEventListener('click', () => {
+    terminalModal.classList.remove('hidden');
+    runSimulation(); // Start animation on click
+    setTimeout(() => terminalInput.focus(), 300); // Focus input after modal appears
+});
+
+// 3. Close Terminal
+closeBtn.addEventListener('click', () => {
+    terminalModal.classList.add('hidden');
+});
+
+// 4. Command Input Handler
+terminalInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
-        const input = this.value.trim().toLowerCase();
-        const history = document.getElementById('terminal-history');
+        const cmd = terminalInput.value.trim().toLowerCase();
         
-        // Add user command to history
-        const commandLine = document.createElement('div');
-        commandLine.innerHTML = `<span class="text-green-500">➜</span> <span class="text-blue-400">~/portfolio</span> <span class="text-white">${this.value}</span>`;
-        history.appendChild(commandLine);
+        // Show user command
+        const userCmd = document.createElement('div');
+        userCmd.innerHTML = `<span class="text-green-500">➜</span> <span class="text-blue-400">~/sdet</span> <span class="text-white">${terminalInput.value}</span>`;
+        terminalOutput.appendChild(userCmd);
 
-        // Command processing logic
+        // Simple responses
         let response = "";
-        switch(input) {
-            case 'help':
-                response = "Available commands: <br> - <span class='text-blue-400'>skills</span>: View technical stack <br> - <span class='text-blue-400'>experience</span>: Show career path <br> - <span class='text-blue-400'>clear</span>: Reset terminal <br> - <span class='text-blue-400'>contact</span>: Get social links";
-                break;
-            case 'skills':
-                response = "Core Stack: Java, Python,JavaScript, TS, Selenium, Playwright, Cypress, K6, Jenkins, SQL.";
-                break;
-            case 'experience':
-                response = "Latest: QA Engineer @ Amega | Prev: SDET @ BDSwiss, Mersys.";
-                break;
-            case 'certifications':
-                response = "<span class='text-blue-400'>✓ ISTQB Foundation Level</span> (ID: #23-02-ISTQB) - Verified";
-                break;
-            case 'contact':
-                response = "Email: ahmetdem6325@gmail.com | LinkedIn: https://www.linkedin.com/in/demirahmet6325/";
-                break;
-            case 'clear':
-                history.innerHTML = "Terminal cleared. Type 'help' for commands.";
-                this.value = "";
-                return;
-            case '':
-                response = "";
-                break;
-            default:
-                response = `Command not found: ${input}. Type <span class="text-yellow-400">'help'</span> for assistance.`;
+        // if (cmd === 'help') response = "Available: skills, projects, clear, contact";
+        // else if (cmd === 'skills') response = "Tech Stack: Playwright, Cypress, Selenium, Java, TypeScript, K6.";
+        // else if (cmd === 'clear') { terminalOutput.innerHTML = ""; terminalInput.value = ""; return; }
+        // else if (cmd !== "") response = `Command not found: ${cmd}`;
+
+        switch(cmd){
+               case 'help':
+                    response = "Available: <span class='text-blue-400'>skills</span>, <span class='text-blue-400'>experience</span>, <span class='text-blue-400'>projects</span>,<span class='text-blue-400'> certification</span> <span class='text-blue-400'>clear</span>";
+                    break;
+                case 'skills':
+                    response = "Core Stack: Java, Python, JavaScript, TS, Selenium, Playwright, Cypress, K6, Jenkins, SQL.";
+                    break;
+                case 'experience':
+                    response = "Latest: QA Engineer @ Amega | Prev: SDET @ BDSwiss, Mersys.";
+                    break;
+                case 'projects':
+                    response = "8 Featured Projects loaded. Check 'Projects' section for details.";
+                    break;
+                case 'certification':
+                   response = "ISTQB, SDET, Jmeter, Cypress ,Python"
+                    break;
+                  case 'clear':
+                    history.innerHTML = "<div class='text-blue-400'>● System reset.</div>";
+                    this.value = "";
+                    return;
+                case '': response = ""; break;
+                default:
+                    response = `Command not found: ${cmd}. Type <span class='text-yellow-400'>'help'</span>.`;
+
+          }
+
+        if (response) {
+            const resDiv = document.createElement('div');
+            resDiv.className = "text-slate-500 pl-4 border-l border-slate-800 my-1";
+            resDiv.innerHTML = response;
+            terminalOutput.appendChild(resDiv);
         }
 
-        // Add response to history
-        if(response !== "") {
-            const responseLine = document.createElement('div');
-            responseLine.className = "text-slate-400 pl-4 border-l border-slate-800 my-1";
-            responseLine.innerHTML = response;
-            history.appendChild(responseLine);
-        }
-
-        // Clean up and scroll
-        this.value = "";
-        const body = document.getElementById('terminal-body');
-        body.scrollTop = body.scrollHeight;
+        terminalInput.value = "";
+        terminalScreen.scrollTop = terminalScreen.scrollHeight;
     }
 });
 
+// Click anywhere on terminal to focus input
+terminalScreen.addEventListener('click', () => terminalInput.focus());
 /**
- * Self-invoking start to bypass potential script-halting errors below.
+ * Close Action: Enhanced for reliability
  */
-try {
-    startTerminal();
-} catch (e) {
-    console.error("Terminal failed to start:", e);
-}
+const closeAction = (e) => {
+    if (e) e.stopPropagation(); // Diğer tıklama olaylarını durdur
+    terminalModal.classList.add('hidden');
+    openBtn.classList.remove('scale-0');
+    // Simülasyonu sıfırla (İsteğe bağlı: Bir sonraki açılışta temiz başlar)
+    terminalOutput.innerHTML = "";
+};
+
+// Kırmızı butona tıklayınca
+closeBtn.addEventListener('click', closeAction);
+
+// ESC tuşu desteği (Kullanıcı dostu)
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !terminalModal.classList.contains('hidden')) {
+        closeAction();
+    }
+});
+
+// Modal dışındaki boşluğa (backdrop) tıklayınca kapat
+terminalModal.addEventListener('click', (e) => {
+    if (e.target === terminalModal) {
+        closeAction();
+    }
+});
+
     </script>
   </body>
 </html>
