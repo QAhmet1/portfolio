@@ -872,63 +872,62 @@
 </section>
 
         <!-- 6. Contact Section (Contact Me) -->
-        <section id="contact" class="py-16 md:py-24">
-          <h2 class="section-title">Contact</h2>
-          <p class="text-center text-slate-300 mb-8 max-w-xl mx-auto">
-            Open to new projects, roles, and collaborations. Let’s ship better
-            software together.
-          </p>
-          <div class="glass-card max-w-xl mx-auto">
-            <form
-  id="contact-form"
-  action="https://formspree.io/f/xvzgnrjo"
-  method="POST"
-  class="space-y-5"
->
-  <div>
-    <label for="name" class="form-label">Your Name</label>
-    <input
-      type="text"
-      name="name"
-      id="name"
-      placeholder="Your Full Name"
-      required
-      class="form-input"
-    />
-  </div>
-  <div>
-    <label for="email" class="form-label">Your Email</label>
-    <input
-      type="email"
-      name="email"
-      id="email"
-    placeholder="example@mail.com"
-      required
-      class="form-input"
-    />
-  </div>
-  <div>
-    <label for="message" class="form-label">Message</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="4"
-      placeholder="Write your message here..."
-      required
-      class="form-input"
-    ></textarea>
-  </div>
-  <button type="submit" id="submit-btn" class="btn-primary w-full">
-    Send Message
-  </button>
-  <div id="success-message" class="mail-success-message" style="display: none;">
-    Thank you! Your message has been sent successfully.
-  </div>
-</form>
-          </div>
-        </section>
-      </div>
-    </main>
+<section id="contact" class="py-24 relative overflow-hidden bg-[#020617]">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -z-10"></div>
+
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-indigo-400 font-mono text-xs tracking-[0.3em] uppercase mb-3">Transmission</h2>
+            <h3 class="text-4xl font-bold text-white mb-4">Establish Connection</h3>
+            <p class="text-slate-400 font-mono text-xs">READY TO INITIALIZE NEW PROJECTS_</p>
+        </div>
+
+        <div class="contact-console-wrapper relative p-[1px] bg-gradient-to-br from-indigo-500/30 via-transparent to-blue-500/30 rounded-3xl">
+            <div class="bg-slate-950/90 backdrop-blur-xl p-8 md:p-12 rounded-[calc(1.5rem-1px)]">
+                
+                <form id="contact-form" action="https://formspree.io/f/xvzgnrjo" method="POST" class="space-y-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="form-group relative">
+                            <label for="name" class="contact-label">Identification</label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-500/50"><i class="fas fa-user-secret"></i></span>
+                                <input type="text" name="name" id="name" placeholder="YOUR NAME" required class="contact-input pl-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group relative">
+                            <label for="email" class="contact-label">Return Address</label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-500/50"><i class="fas fa-at"></i></span>
+                                <input type="email" name="email" id="email" placeholder="EMAIL@PROTOCOL.COM" required class="contact-input pl-12">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group relative">
+                        <label for="message" class="contact-label">Encrypted Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="ENTER COMMUNICATION DATA..." required class="contact-input min-h-[150px]"></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="contact-submit-btn group">
+                        <span class="relative z-10 flex items-center justify-center gap-3">
+                            EXECUTE SEND
+                            <i class="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        </span>
+                        <div class="btn-glow"></div>
+                    </button>
+
+                    <div id="success-message" class="mail-success-message mt-4">
+                        <i class="fas fa-check-circle mr-2"></i> DATA TRANSMITTED SUCCESSFULLY.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+      
 
     <!-- Footer -->
     <footer
@@ -955,51 +954,42 @@ if (mobileMenuBtn && mobileMenu) {
 }
 
       // Form Submission Logic using Formspree (AJAX)
-      const form = document.getElementById("contact-form");
-      const successMessage = document.getElementById("success-message");
-      const submitBtn = document.getElementById("submit-btn");
+      // Add inside your DOMContentLoaded
+const contactForm = document.getElementById("contact-form");
+const contactSubmitBtn = document.getElementById("submit-btn");
 
-      form.addEventListener("submit", async function (e) {
-        e.preventDefault(); // Prevents the default page reload
-        
-        const formData = new FormData(form);
-        submitBtn.disabled = true;
-        submitBtn.innerText = "Sending...";
+contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    
+    const formData = new FormData(contactForm);
+    contactSubmitBtn.disabled = true;
+    contactSubmitBtn.innerHTML = '<i class="fas fa-sync fa-spin mr-2"></i> ENCRYPTING...';
 
-        try {
-          const response = await fetch(form.action, {
+    try {
+        const response = await fetch(contactForm.action, {
             method: "POST",
             body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
+            headers: { 'Accept': 'application/json' }
+        });
 
-          if (response.ok) {
-            // Success Scenario
-            form.reset();
-            successMessage.innerText = "Thank you! Your message has been sent successfully.";
-            successMessage.style.display = "block";
-            submitBtn.innerText = "Message Sent!";
+        if (response.ok) {
+            contactForm.reset();
+            document.getElementById("success-message").style.display = "block";
+            contactSubmitBtn.innerHTML = 'TRANSMISSION COMPLETE';
+            contactSubmitBtn.style.background = '#10b981';
             
             setTimeout(() => {
-              successMessage.style.display = "none";
-              submitBtn.disabled = false;
-              submitBtn.innerText = "Send Message";
+                document.getElementById("success-message").style.display = "none";
+                contactSubmitBtn.disabled = false;
+                contactSubmitBtn.innerHTML = 'EXECUTE SEND';
+                contactSubmitBtn.style.background = '#6366f1';
             }, 5000);
-          } else {
-            // API Error Scenario
-            alert("Oops! There was a problem submitting your form. Please try again.");
-            submitBtn.disabled = false;
-            submitBtn.innerText = "Send Message";
-          }
-        } catch (error) {
-          // Network Error Scenario
-          alert("Error: Connection lost. Please check your internet and try again.");
-          submitBtn.disabled = false;
-          submitBtn.innerText = "Send Message";
         }
-      });
+    } catch (error) {
+        contactSubmitBtn.innerHTML = 'CONNECTION ERROR';
+        contactSubmitBtn.disabled = false;
+    }
+});
 
       // Toggle Additional Info (About Section)
       const toggleInfoBtn = document.getElementById("toggle-additional-info");
