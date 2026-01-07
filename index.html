@@ -797,73 +797,72 @@
 
         <!-- 8. Media & Showreel -->
         <section id="media" class="py-24 relative overflow-hidden bg-[#020617]">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] -z-10"></div>
-
     <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16">
-            <h2 class="text-blue-400 font-mono text-xs tracking-[0.3em] uppercase mb-3">Live Execution</h2>
-            <h3 class="text-4xl font-bold text-white">Automation Showreel</h3>
-            <div class="w-20 h-1 bg-gradient-to-r from-transparent via-blue-600 to-transparent mx-auto mt-4 rounded-full"></div>
+            <h2 class="text-green-400 font-mono text-xs tracking-[0.3em] uppercase mb-3">Live Observability</h2>
+            <h3 class="text-4xl font-bold text-white">Test Execution Dashboard</h3>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto text-sm">Explore my live automation results via the integrated Allure Report below. Comprehensive insights into test stability and performance.</p>
         </div>
 
-        <div class="grid lg:grid-cols-12 gap-8 items-stretch">
-            <div class="lg:col-span-8 group relative">
-                <div class="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-blue-500 z-10 rounded-tl-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                <div class="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-blue-500 z-10 rounded-br-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                
-                <div class="media-console-wrapper p-1 bg-gradient-to-br from-blue-500/20 to-transparent rounded-3xl backdrop-blur-xl border border-white/10 shadow-2xl">
-                    <div class="aspect-video rounded-[calc(1.5rem-4px)] overflow-hidden relative">
-                        <div class="absolute inset-0 pointer-events-none bg-scanner-line opacity-10 z-20"></div>
-                        
-                        <iframe
-                            class="w-full h-full relative z-10"
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                            title="SDET Automation Demo"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
+        <div class="grid lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-9 relative group">
+                <div class="absolute -top-4 left-6 px-4 py-1 bg-green-500/10 border border-green-500/30 rounded-full z-10">
+                    <span class="flex items-center gap-2 text-[10px] text-green-400 font-mono font-bold uppercase">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        Report Server: Online
+                    </span>
+                </div>
+
+                <div class="allure-wrapper p-1 bg-slate-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
+                    <div class="bg-slate-800/50 px-4 py-2 flex items-center gap-2 border-b border-white/5">
+                        <div class="flex gap-1.5">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+                        </div>
+                        <div class="flex-1 mx-4 bg-black/30 rounded py-1 px-3 text-[10px] text-slate-500 font-mono truncate">
+                            https://allure-report.ahmetdemir.qa/execution-results
+                        </div>
+                    </div>
+                    
+                    <div class="aspect-video lg:h-[600px] w-full bg-white rounded-b-xl overflow-hidden">
+                        <iframe 
+                            src="https://qahmet1.github.io/soucedemo_playwright/" 
+                            class="w-full h-full border-none"
+                            title="Allure Test Report">
                         </iframe>
                     </div>
                 </div>
             </div>
 
-            <div class="lg:col-span-4 flex flex-col gap-4">
-                <div class="metric-card bg-slate-900/40 border border-white/5 p-6 rounded-2xl backdrop-blur-md flex-1">
-                    <div class="flex items-center gap-3 mb-6 text-blue-400">
-                        <i class="fas fa-terminal text-sm"></i>
-                        <span class="font-mono text-[10px] uppercase tracking-widest font-bold">Execution Details</span>
-                    </div>
+            <div class="lg:col-span-3 flex flex-col gap-4">
+                <div class="bg-slate-900/50 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-6 border-b border-white/5 pb-4">Insight Summary</h4>
                     
                     <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between text-[10px] mb-2">
-                                <span class="text-slate-500 uppercase">Test Coverage</span>
-                                <span class="text-blue-400">98.2%</span>
-                            </div>
-                            <div class="h-1 bg-slate-800 rounded-full overflow-hidden">
-                                <div class="h-full bg-blue-500 w-[98%] shadow-[0_0_10px_#3b82f6]"></div>
-                            </div>
+                        <div class="text-center p-4 bg-green-500/5 rounded-xl border border-green-500/10">
+                            <p class="text-[10px] text-slate-500 uppercase mb-1">Pass Rate</p>
+                            <p class="text-3xl font-bold text-green-400 font-mono">100%</p>
                         </div>
 
-                        <ul class="space-y-3 font-mono text-[11px]">
-                            <li class="flex items-center gap-2 text-slate-300">
-                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                                Parallel Execution Engine
-                            </li>
-                            <li class="flex items-center gap-2 text-slate-300">
-                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                                Visual Regression Tests
-                            </li>
-                            <li class="flex items-center gap-2 text-slate-300">
-                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                                CI/CD Pipeline Integrated
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="mt-8 p-4 bg-black/40 rounded-xl border border-white/5 font-mono text-[10px] text-blue-400/70">
-                        <p class="mb-1">> Running: Playwright_Suite</p>
-                        <p class="mb-1">> Status: Successful</p>
-                        <p class="text-green-400">> Report Generated.</p>
+                        <div class="space-y-4 font-mono text-[11px]">
+                            <div class="flex justify-between items-center text-slate-300">
+                                <span><i class="fas fa-check-double text-green-500 mr-2"></i> Passed:</span>
+                                <span>9</span>
+                            </div>
+                            <div class="flex justify-between items-center text-slate-300">
+                                <span><i class="fas fa-times-circle text-red-500 mr-2"></i> Failed:</span>
+                                <span>0</span>
+                            </div>
+                            <div class="flex justify-between items-center text-slate-300">
+                                <span><i class="fas fa-history text-blue-500 mr-2"></i> Duration:</span>
+                                <span>3m 6s</span>
+                            </div>
+                        </div>
+                        
+                        <a href="https://qahmet1.github.io/soucedemo_playwright/" target="_blank" class="block w-full text-center py-3 bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-bold uppercase rounded-lg transition-all">
+                            Open Full Report <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
