@@ -796,73 +796,80 @@
 </section>
 
         <!-- 8. Media & Showreel -->
-        <section id="media" class="py-16 md:py-24">
-          <h2 class="section-title">Showreel & Media</h2>
-          <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-8">
-            <div class="glass-card h-full">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-semibold text-white">Featured Demo</h3>
-                <span class="text-xs text-slate-400"
-                  >Replace the video link
-                </span>
-              </div>
-              <div
-                class="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-xl"
-              >
-                <iframe
-                  class="w-full h-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Automation Demo"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <p class="text-slate-300 text-sm mt-4">
-                description
-                <code class="code-inline">&lt;&gt;</code>
-              </p>
+        <section id="media" class="py-24 relative overflow-hidden bg-[#020617]">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-blue-400 font-mono text-xs tracking-[0.3em] uppercase mb-3">Live Execution</h2>
+            <h3 class="text-4xl font-bold text-white">Automation Showreel</h3>
+            <div class="w-20 h-1 bg-gradient-to-r from-transparent via-blue-600 to-transparent mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+            <div class="lg:col-span-8 group relative">
+                <div class="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-blue-500 z-10 rounded-tl-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                <div class="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-blue-500 z-10 rounded-br-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                
+                <div class="media-console-wrapper p-1 bg-gradient-to-br from-blue-500/20 to-transparent rounded-3xl backdrop-blur-xl border border-white/10 shadow-2xl">
+                    <div class="aspect-video rounded-[calc(1.5rem-4px)] overflow-hidden relative">
+                        <div class="absolute inset-0 pointer-events-none bg-scanner-line opacity-10 z-20"></div>
+                        
+                        <iframe
+                            class="w-full h-full relative z-10"
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                            title="SDET Automation Demo"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
             </div>
-            <!-- <div class="glass-card h-full">
-              <h3 class="text-xl font-semibold text-white mb-4">
-                Media Gallery
-              </h3>
-              <div class="grid grid-cols-2 gap-3">
-                <div
-                  class="gallery-tile"
-                  style="
-                    background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80');
-                  "
-                ></div>
-                <div
-                  class="gallery-tile"
-                  style="
-                    background-image: url('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=800&q=80');
-                  "
-                ></div>
-                <div
-                  class="gallery-tile"
-                  style="
-                    background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80');
-                  "
-                ></div>
-                <div
-                  class="gallery-tile"
-                  style="
-                    background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');
-                  "
-                ></div>
-              </div>
-              <p class="text-slate-300 text-sm mt-4">
-                Swap any tile background URL with your images (JPG/PNG/WebP).
-                For a local asset, place it in a
-                <code class="code-inline">media/</code> folder and set
-                <code class="code-inline"
-                  >background-image:url('media/your-photo.jpg')</code
-                >.
-              </p>
-            </div> -->
-          </div>
-        </section>
+
+            <div class="lg:col-span-4 flex flex-col gap-4">
+                <div class="metric-card bg-slate-900/40 border border-white/5 p-6 rounded-2xl backdrop-blur-md flex-1">
+                    <div class="flex items-center gap-3 mb-6 text-blue-400">
+                        <i class="fas fa-terminal text-sm"></i>
+                        <span class="font-mono text-[10px] uppercase tracking-widest font-bold">Execution Details</span>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-[10px] mb-2">
+                                <span class="text-slate-500 uppercase">Test Coverage</span>
+                                <span class="text-blue-400">98.2%</span>
+                            </div>
+                            <div class="h-1 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-blue-500 w-[98%] shadow-[0_0_10px_#3b82f6]"></div>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-3 font-mono text-[11px]">
+                            <li class="flex items-center gap-2 text-slate-300">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                Parallel Execution Engine
+                            </li>
+                            <li class="flex items-center gap-2 text-slate-300">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                Visual Regression Tests
+                            </li>
+                            <li class="flex items-center gap-2 text-slate-300">
+                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                CI/CD Pipeline Integrated
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 p-4 bg-black/40 rounded-xl border border-white/5 font-mono text-[10px] text-blue-400/70">
+                        <p class="mb-1">> Running: Playwright_Suite</p>
+                        <p class="mb-1">> Status: Successful</p>
+                        <p class="text-green-400">> Report Generated.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- 6. Contact Section (Contact Me) -->
         <section id="contact" class="py-16 md:py-24">
@@ -1083,11 +1090,6 @@ terminalInput.addEventListener('keydown', (e) => {
 
         // Simple responses
         let response = "";
-        // if (cmd === 'help') response = "Available: skills, projects, clear, contact";
-        // else if (cmd === 'skills') response = "Tech Stack: Playwright, Cypress, Selenium, Java, TypeScript, K6.";
-        // else if (cmd === 'clear') { terminalOutput.innerHTML = ""; terminalInput.value = ""; return; }
-        // else if (cmd !== "") response = `Command not found: ${cmd}`;
-
         switch(cmd){
                case 'help':
                     response = "Available: <span class='text-blue-400'>skills</span>, <span class='text-blue-400'>experience</span>, <span class='text-blue-400'>projects</span>,<span class='text-blue-400'> certification</span> <span class='text-blue-400'>clear</span>";
@@ -1192,6 +1194,15 @@ document.querySelectorAll('.cert-card').forEach(card => {
         }, 500);
     });
 });
+
+// Add this inside your DOMContentLoaded
+const logs = [
+    "> Running: Playwright_Suite",
+    "> Status: Active",
+    "> All Tests Passed in 12.4s",
+    "> Fetching Reports..."
+];
+// You can build a small loop here to refresh the metrics text periodically.
 
     </script>
   </body>

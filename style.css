@@ -935,3 +935,40 @@ body {
 .cert-verify-btn {
     pointer-events: auto !important;
 }
+
+/* Media Section Custom Enhancements */
+
+/* Horizontal Scanning Line Effect */
+.bg-scanner-line {
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(59, 130, 246, 0.4) 50%,
+        transparent 100%
+    );
+    background-size: 100% 4px;
+    animation: scanLine 8s linear infinite;
+}
+
+@keyframes scanLine {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(400%); }
+}
+
+.media-console-wrapper {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.media-console-wrapper:hover {
+    box-shadow: 0 0 50px -10px rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.metric-card {
+    transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.2);
+}
