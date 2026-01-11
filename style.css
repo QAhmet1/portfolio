@@ -1044,3 +1044,19 @@ iframe {
     line-clamp: 3;         /* Standard property */
     overflow: hidden;
 }
+
+/* Dropdown Hover Animation */
+.group:hover .origin-top-left {
+    transform: translateY(0) scale(1);
+}
+
+.origin-top-left {
+    transform: translateY(-10px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassmorphism effect for the menu */
+.bg-slate-900 {
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+}
