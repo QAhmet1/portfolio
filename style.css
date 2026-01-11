@@ -1027,3 +1027,20 @@ body {
 iframe {
     background-color: #f8fafc; /* Standard Allure background */
 }
+
+/* Updated with standard properties to remove warnings */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Still needed for WebKit browsers */
+    line-clamp: 2;         /* Standard property */
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Still needed for WebKit browsers */
+    line-clamp: 3;         /* Standard property */
+    overflow: hidden;
+}
