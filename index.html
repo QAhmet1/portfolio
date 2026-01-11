@@ -1197,7 +1197,7 @@ terminalInput.addEventListener('keydown', (e) => {
         let response = "";
         switch(cmd){
                case 'help':
-                    response = "Available: <span class='text-blue-400'>skills</span>, <span class='text-blue-400'>experience</span>, <span class='text-blue-400'>projects</span>,<span class='text-blue-400'> certification</span> <span class='text-blue-400'>clear</span>";
+                    response = "Available: <span class='text-blue-400'>skills</span>, <span class='text-blue-400'>experience</span>, <span class='text-blue-400'>projects</span>,<span class='text-blue-400'> articles</span>,<span class='text-blue-400'> certification</span> <span class='text-blue-400'>clear</span>";
                     break;
                 case 'skills':
                     response = "Core Stack: Java, Python, JavaScript, TS, Selenium, Playwright, Cypress, K6, Jenkins, SQL.";
@@ -1207,6 +1207,9 @@ terminalInput.addEventListener('keydown', (e) => {
                     break;
                 case 'projects':
                     response = "8 Featured Projects loaded. Check 'Projects' section for details.";
+                    break;
+                case 'articles':
+                    response = "6 articles loaded. Check 'Technical Insights' section for details.";
                     break;
                 case 'certification':
                    response = "ISTQB, SDET, Jmeter, Cypress ,Python"
