@@ -864,105 +864,8 @@
         <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <div class="cert-card group">
-            <div class="cert-card-inner p-8 rounded-2xl h-full flex flex-col relative overflow-hidden">
-                <div class="flex items-start justify-between mb-8">
-                    <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition-colors">
-                        <i class="fas fa-shield-alt text-2xl text-blue-400"></i>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-[9px] font-mono text-slate-500 uppercase tracking-tighter block">Verified ID</span>
-                        <span class="text-[10px] font-mono text-blue-400">0224 CTFL 6532</span>
-                    </div>
-                </div>
-
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">ISTQB Foundation Level</h3>
-                <p class="text-slate-400 text-sm font-medium mb-4">Turkish Testing Board</p>
-                
-                <p class="text-slate-300 text-xs leading-relaxed opacity-80 mb-6">
-                    Comprehensive mastery of software testing lifecycle, risk management, and static/dynamic testing techniques.
-                </p>
-
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="cert-tag">Black-Box</span>
-                    <span class="cert-tag">Risk Analysis</span>
-                    <span class="cert-tag">SDLC</span>
-                </div>
-                
-                <div class="mt-auto pt-4 border-t border-slate-700/50 flex justify-between items-center">
-                    <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Feb 2023</span>
-                    <a href="istqb-foundation-level.pdf" class="cert-verify-btn">Verify</a>
-                </div>
-            </div>
+    <div id="certifications-container" class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         </div>
-
-        <div class="cert-card group">
-            <div class="cert-card-inner p-8 rounded-2xl h-full flex flex-col relative overflow-hidden">
-                <div class="flex items-start justify-between mb-8">
-                    <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition-colors">
-                        <i class="fas fa-brain text-2xl text-blue-400"></i>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-[9px] font-mono text-slate-500 uppercase tracking-tighter block">Verified ID</span>
-                        <span class="text-[10px] font-mono text-blue-400">0746dc6e1...</span>
-                    </div>
-                </div>
-
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Generative AI in Testing</h3>
-                <p class="text-slate-400 text-sm font-medium mb-4">ShiftSync Community</p>
-                
-                <p class="text-slate-300 text-xs leading-relaxed opacity-80 mb-6">
-                    Mastered AI-powered testing techniques and prompt engineering to optimize QA workflows and model evaluations.
-                </p>
-
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="cert-tag">Prompt Eng.</span>
-                    <span class="cert-tag">LLM Testing</span>
-                    <span class="cert-tag">AI Strategy</span>
-                </div>
-                
-                <div class="mt-auto pt-4 border-t border-slate-700/50 flex justify-between items-center">
-                    <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Jan 2026</span>
-                    <a href="genai_certificate.pdf" class="cert-verify-btn">Verify</a>
-                </div>
-            </div>
-        </div>
-          <!-- start -->
-         <div class="cert-card group">
-            <div class="cert-card-inner p-8 rounded-2xl h-full flex flex-col relative overflow-hidden">
-                <div class="flex items-start justify-between mb-8">
-                    <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition-colors">
-                        <i class="fas fa-brain text-2xl text-blue-400"></i>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-[9px] font-mono text-slate-500 uppercase tracking-tighter block">Verified ID</span>
-                        <span class="text-[10px] font-mono text-blue-400">UC-5d615f39...</span>
-                    </div>
-                </div>
-
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">SQL Mastery</h3>
-                <p class="text-slate-400 text-sm font-medium mb-4">Udemy</p>
-                
-                <p class="text-slate-300 text-xs leading-relaxed opacity-80 mb-6">
-                  Database Testing & Querying Advanced SQL certification covering relational database management, complex queries, and data validation for backend testing.
-                </p>
-
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="cert-tag">SQL</span>
-                    <span class="cert-tag"> DatabaseTesting</span>
-                    <span class="cert-tag"> DBeaver</span>
-                </div>
-                
-                <div class="mt-auto pt-4 border-t border-slate-700/50 flex justify-between items-center">
-                    <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Jan 2026</span>
-                    <a href="sql_certificate.pdf" class="cert-verify-btn">Verify</a>
-                </div>
-            </div>
-        </div>
-        <!-- End -->
-    </div>
   </section>
 
         <!-- 8. Media & Showreel -->
@@ -1366,7 +1269,80 @@ const logs = [
     "> All Tests Passed in 12.4s",
     "> Fetching Reports..."
 ];
-// You can build a small loop here to refresh the metrics text periodically.
+// Data for certifications
+const certData = [
+    {
+        title: "ISTQB Foundation Level",
+        issuer: "Turkish Testing Board",
+        id: "0224 CTFL 6532",
+        date: "Feb 2023",
+        description: "Comprehensive mastery of software testing lifecycle, risk management, and static/dynamic testing techniques.",
+        tags: ["Black-Box", "Risk Analysis", "SDLC"],
+        verifyLink: "istqb-foundation-level.pdf",
+        icon: "fa-shield-alt"
+    },
+    {
+        title: "Generative AI in Testing",
+        issuer: "ShiftSync Community",
+        id: "0746dc6e1...",
+        date: "Jan 2026",
+        description: "Mastered AI-powered testing techniques and prompt engineering to optimize QA workflows and model evaluations.",
+        tags: ["Prompt Eng.", "LLM Testing", "AI Strategy"],
+        verifyLink: "genai_certificate.pdf",
+        icon: "fa-brain"
+    },
+    {
+        title: "SQL Mastery",
+        issuer: "Udemy",
+        id: "UC-5d615f39...", // From source image
+        date: "Jan 2026", // From source image
+        description: "Advanced SQL certification covering relational database management, complex queries, and data validation for backend testing.",
+        tags: ["SQL", "DatabaseTesting", "DBeaver"],
+        verifyLink: "sql_certificate.pdf",
+        icon: "fa-database"
+    }
+];
+
+// Function to render certificates
+function renderCertificates() {
+    const container = document.getElementById('certifications-container');
+    if (!container) return;
+
+    container.innerHTML = certData.map(cert => `
+        <div class="cert-card group">
+            <div class="cert-card-inner p-8 rounded-2xl h-full flex flex-col relative overflow-hidden">
+                <div class="flex items-start justify-between mb-8">
+                    <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition-colors">
+                        <i class="fas ${cert.icon} text-2xl text-blue-400"></i>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[9px] font-mono text-slate-500 uppercase tracking-tighter block">Verified ID</span>
+                        <span class="text-[10px] font-mono text-blue-400">${cert.id}</span>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">${cert.title}</h3>
+                <p class="text-slate-400 text-sm font-medium mb-4">${cert.issuer}</p>
+                
+                <p class="text-slate-300 text-xs leading-relaxed opacity-80 mb-6">
+                    ${cert.description}
+                </p>
+
+                <div class="flex flex-wrap gap-2 mb-8">
+                    ${cert.tags.map(tag => `<span class="cert-tag">${tag}</span>`).join('')}
+                </div>
+                
+                <div class="mt-auto pt-4 border-t border-slate-700/50 flex justify-between items-center">
+                    <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">${cert.date}</span>
+                    <a href="${cert.verifyLink}" target="_blank" class="cert-verify-btn">Verify</a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Execute on load
+document.addEventListener('DOMContentLoaded', renderCertificates);
 
     </script>
   </body>
