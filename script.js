@@ -1,6 +1,6 @@
 /**
- * AHMED DEMIR - PORTFOLIO LOGIC
- * Includes: Menu, Form, Terminal, Certifications, and 3D Effects.
+ * AHMED DEMIR - PORTFOLIO LOGIC v3
+ * Automation for Certifications & Projects included.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     async function runSimulation() {
+        if(!terminalOutput) return;
         terminalOutput.innerHTML = "";
         for (const step of simulationSteps) {
             await new Promise(resolve => setTimeout(resolve, step.delay));
@@ -107,28 +108,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const closeAction = () => {
-        terminalModal.classList.add('hidden');
-        terminalOutput.innerHTML = "";
+        if (terminalModal) {
+            terminalModal.classList.add('hidden');
+            terminalOutput.innerHTML = "";
+        }
     };
 
     if (closeBtn) closeBtn.addEventListener('click', closeAction);
 
-    // Modal backdrop
-if (terminalModal) {
-    terminalModal.addEventListener('click', (e) => {
-        
-        if (e.target === terminalModal) {
+    if (terminalModal) {
+        terminalModal.addEventListener('click', (e) => {
+            if (e.target === terminalModal) closeAction();
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && terminalModal && !terminalModal.classList.contains('hidden')) {
             closeAction();
         }
     });
-}
-
-// ESC 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !terminalModal.classList.contains('hidden')) {
-        closeAction();
-    }
-});
 
     if (terminalInput) {
         terminalInput.addEventListener('keydown', (e) => {
@@ -144,31 +142,14 @@ document.addEventListener('keydown', (e) => {
 
                 let response = "";
                 switch(cmd){
-                    case 'help':
-                    response = "Available: <span class='text-blue-400'>skills</span>, <span class='text-blue-400'>experience</span>, <span class='text-blue-400'>projects</span>,<span class='text-blue-400'> articles</span>,<span class='text-blue-400'> certification</span>,<span class='text-blue-400'>clear</span>";
-                    break;
-                case 'skills':
-                    response = "Core Stack: Java, Python, JavaScript, TS, Selenium, Playwright, Cypress, K6, Jenkins, SQL.";
-                    break;
-                case 'experience':
-                    response = "Latest: QA Engineer @ Amega | Prev: SDET @ BDSwiss, Mersys.";
-                    break;
-                case 'projects':
-                    response = "8 Featured Projects loaded. Check 'Projects' section for details.";
-                    break;
-                case 'articles':
-                    response = "6 articles loaded. Check 'Technical Insights' section for details.";
-                    break;
-                case 'certification':
-                   response = "ISTQB, SDET, Jmeter, Cypress ,Python"
-                    break;
-                  case 'clear':
-                    terminalOutput.innerHTML = "";
-                terminalInput.value = "";
-                return;
-                case '': response = ""; break;
-                default:
-                    response = `Command not found: ${cmd}. Type <span class='text-yellow-400'>'help'</span>.`;
+                    case 'help': response = "Available: skills, experience, projects, articles, certification, clear"; break;
+                    case 'skills': response = "Core Stack: Java, Python, JS, TS, Selenium, Playwright, SQL."; break;
+                    case 'experience': response = "Latest: QA Engineer @ Amega | Prev: SDET @ BDSwiss."; break;
+                    case 'projects': response = "All automation projects loaded in the Projects section."; break;
+                    case 'articles':response = "6 articles loaded. Check 'Technical Insights' section for details."; break;
+                    case 'certification': response = "ISTQB, GenAI, SQL Mastery (Udemy) loaded."; break;
+                    case 'clear': terminalOutput.innerHTML = ""; terminalInput.value = ""; return;
+                    default: response = `Command not found: ${cmd}. Type 'help'.`;
                 }
 
                 if (response) {
@@ -183,35 +164,35 @@ document.addEventListener('keydown', (e) => {
         });
     }
 
-    // 5. CERTIFICATION RENDERER
+    // 5. CERTIFICATION DATA & RENDERER
     const certData = [
         {
             title: "ISTQB Foundation Level",
             issuer: "Turkish Testing Board",
             id: "0224 CTFL 6532",
             date: "Feb 2023",
-            description: "Comprehensive mastery of software testing lifecycle.",
+            description: "Comprehensive mastery of software testing lifecycle, risk management, and testing techniques.",
             tags: ["Black-Box", "Risk Analysis", "SDLC"],
             verifyLink: "istqb-foundation-level.pdf",
             icon: "fa-shield-alt"
         },
         {
-        title: "Generative AI in Testing",
-        issuer: "ShiftSync Community",
-        id: "0746dc6e1...",
-        date: "Jan 2026",
-        description: "Mastered AI-powered testing techniques and prompt engineering to optimize QA workflows and model evaluations.",
-        tags: ["Prompt Eng.", "LLM Testing", "AI Strategy"],
-        verifyLink: "genai_certificate.pdf",
-        icon: "fa-brain"
+            title: "Generative AI in Testing",
+            issuer: "ShiftSync Community",
+            id: "0746dc6e1...",
+            date: "Jan 2026",
+            description: "Mastered AI-powered testing techniques and prompt engineering to optimize QA workflows.",
+            tags: ["Prompt Eng.", "LLM Testing", "AI Strategy"],
+            verifyLink: "genai_certificate.pdf",
+            icon: "fa-brain"
         },
         {
             title: "SQL Mastery",
             issuer: "Udemy",
             id: "UC-5d615f39...", 
             date: "Jan 2026", 
-            description: "Advanced SQL certification for backend testing.",
-            tags: ["SQL", "DatabaseTesting"],
+            description: "Advanced SQL certification covering relational DB management and complex querying.",
+            tags: ["SQL", "DatabaseTesting", "DBeaver"],
             verifyLink: "sql_certificate.pdf",
             icon: "fa-database"
         }
@@ -245,15 +226,97 @@ document.addEventListener('keydown', (e) => {
                 </div>
             </div>
         `).join('');
-        
-        // Initialize 3D Tilt after rendering
-        initTiltEffect();
     }
 
-    // 6. 3D TILT EFFECT
+    // 6. PROJECTS DATA & RENDERER
+    const featuredProjects = [
+        {
+            tag: "E2E Ecosystem",
+            title: "Advanced Playwright Suite",
+            borderColor: "border-l-blue-500",
+            challenge: "Legacy regression took 3+ hours with high flakiness.",
+            solution: "Implemented parallel POM architecture & custom fixtures.",
+            impact: "Reduced execution time to 15 mins (92% improvement).",
+            link: "https://github.com/QAhmet1/Playwright_project",
+            image: "images/playwright.png",
+            themeColor: "text-blue-400"
+        },
+        {
+            tag: "Performance Engineering",
+            title: "K6 & Grafana Monitoring Stack",
+            borderColor: "border-l-yellow-500",
+            challenge: "Unpredictable crashes during peak user traffic.",
+            solution: "Containerized load tests with real-time observability.",
+            impact: "Identified 3 memory leaks before production release.",
+            link: "https://github.com/QAhmet1/K6-Performance-Testing",
+            image: "images/k6-performance-testing.png",
+            themeColor: "text-yellow-500"
+        },
+        {
+            tag: "Data Analysis",
+            title: "3.2M+ User Activity Analysis",
+            borderColor: "border-l-green-500",
+            challenge: "Correlating massive datasets for churn patterns.",
+            solution: "Optimized PostgreSQL queries using CTEs & indexing.",
+            impact: "Extracted engagement metrics for 3M+ users.",
+            link: "https://github.com/QAhmet1/PostgreSQL-Activity-Analysis",
+            image: "images/sql.png",
+            themeColor: "text-green-400"
+        }
+    ];
+
+    const repoHub = [
+        { title: "Cypress Test Suite", desc: "E2E coverage for demo apps with custom fixtures.", link: "https://github.com/QAhmet1/cypress" },
+        { title: "Postman & Newman", desc: "Automated API validation with GitHub Actions.", link: "https://github.com/QAhmet1/api-automation" },
+        { title: "WebDriverIO Mobile", desc: "Cross-platform mobile automation with POM.", link: "https://github.com/QAhmet1/wdio-appium" },
+        { title: "Pytest & Appium", desc: "Scalable Python mobile automation.", link: "https://github.com/QAhmet1/Pytest-Appium" },
+        { title: "REST API Engine", desc: "Professional-grade API framework with Allure.", link: "https://github.com/QAhmet1/pytest_api" }
+    ];
+
+    function renderProjects() {
+        const featuredContainer = document.getElementById('featured-projects-container');
+        const repoContainer = document.getElementById('repo-hub-container');
+
+        if (featuredContainer) {
+            featuredContainer.innerHTML = featuredProjects.map(proj => `
+                <div class="card-modern p-8 border-l-4 ${proj.borderColor}">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-3/5">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="tag-modern">${proj.tag}</span>
+                                <h3 class="text-2xl font-bold text-white leading-tight">${proj.title}</h3>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6 text-xs">
+                                <div class="bg-red-500/5 p-3 rounded-xl border border-red-500/10"><p class="text-red-400 font-bold mb-1 uppercase">Challenge</p><p class="text-slate-300">${proj.challenge}</p></div>
+                                <div class="bg-blue-500/5 p-3 rounded-xl border border-blue-500/10"><p class="text-blue-400 font-bold mb-1 uppercase">Solution</p><p class="text-slate-300">${proj.solution}</p></div>
+                                <div class="bg-green-500/5 p-3 rounded-xl border border-green-500/10"><p class="text-green-400 font-bold mb-1 uppercase">Impact</p><p class="text-slate-300">${proj.impact}</p></div>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="${proj.link}" target="_blank" class="${proj.themeColor} font-bold flex items-center gap-1 hover:underline">View Code <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="md:w-2/5"><img src="${proj.image}" class="rounded-xl opacity-80 border border-white/10" alt="${proj.title}"></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        if (repoContainer) {
+            repoContainer.innerHTML = repoHub.map(repo => `
+                <div class="card-modern p-6 flex flex-col">
+                    <h3 class="text-white font-bold mb-2">${repo.title}</h3>
+                    <p class="text-xs text-slate-400 mb-4 flex-grow">${repo.desc}</p>
+                    <div class="flex gap-4"><a href="${repo.link}" target="_blank" class="text-xs text-blue-400 hover:text-white">Repo <i class="fab fa-github"></i></a></div>
+                </div>
+            `).join('');
+        }
+    }
+
+    // 7. 3D TILT EFFECT
     function initTiltEffect() {
         document.querySelectorAll('.cert-card').forEach(card => {
             const inner = card.querySelector('.cert-card-inner');
+            if(!inner) return;
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
@@ -269,5 +332,8 @@ document.addEventListener('keydown', (e) => {
         });
     }
 
+    // FINAL EXECUTION CALLS
     renderCertificates();
+    renderProjects();
+    initTiltEffect();
 });
