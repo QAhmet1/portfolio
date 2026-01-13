@@ -381,6 +381,146 @@ function renderArticles() {
     `).join('');
 }
 
+/**
+ * EXPERIENCE DATA & RENDERER
+ * Optimized with CV details and professional highlights.
+ */
+const experienceData = [
+    {
+        role: "QA Engineer",
+        company: "Amega",
+        location: "Limassol, Cyprus",
+        period: "Jan 2025 — Present",
+        icon: "fa-microchip",
+        colorClass: "blue",
+        highlights: [
+            { label: "Framework & Automation", text: "Established foundational frameworks from scratch using <span class='tech-highlight'>WDIO, Appium, and Cypress</span>; integrated <span class='tech-highlight'>K6</span> for performance and <span class='tech-highlight'>SQL</span> for data validation." },
+            { label: "End-to-End Testing", text: "Conducted rigorous manual and automated testing for functionality, security, and scalability, adhering to stringent quality standards." },
+            { label: "Lifecycle Management", text: "Partnered with cross-functional teams to analyze requirements, ensuring 100% test coverage and proactive defect tracking from discovery to resolution." },
+            { label: "QA Innovation", text: "Designed and maintained scalable test environments and tools, keeping pace with emerging technologies to drive excellence in QA practices." }
+        ]
+    },
+    {
+        role: "Software QA Engineer / SDET",
+        company: "BDSwiss",
+        location: "Nicosia, Cyprus",
+        period: "Feb 2023 — Feb 2025",
+        icon: "fa-chart-line",
+        colorClass: "green",
+        highlights: [
+            { label: "Hybrid Testing Mastery", text: "Performed manual and automation testing across <span class='tech-highlight'>Android, iOS, and Web</span> platforms using <span class='tech-highlight'>Appium (Python)</span> and <span class='tech-highlight'>Cypress</span>." },
+            { label: "Strategic Planning", text: "Thoroughly reviewed technical design documents and developed structured Test Plans to identify risks in early development stages." },
+            { label: "Regression & Stability", text: "Executed thorough regression suites to validate bug fixes, ensuring new deployments had zero negative impact on existing core functionalities." },
+            { label: "Collaborative QA", text: "Liaised with Product Managers and Developers to refine requirements and apply testing processes that aligned with complex business objectives." }
+        ]
+    },
+    {
+        role: "Mentor & QA Strategist",
+        company: "Techno Study",
+        location: "USA (Remote)",
+        period: "Apr 2022 — Oct 2023",
+        icon: "fa-user-graduate",
+        colorClass: "purple",
+        highlights: [
+            { label: "Hands-on Training", text: "Provided mentorship on best practices in coding, test automation frameworks, and effective execution techniques to over 100+ mentees." },
+            { label: "Skill Refinement", text: "Delivered actionable feedback on real-world testing scenarios, empowering mentees to build confidence in professional QA environments." },
+            { label: "Structured Learning", text: "Ensured adherence to established methodologies and milestones, fostering a high-standard learning ecosystem for future SDETs." }
+        ]
+    },
+    {
+        role: "Test Automation Engineer",
+        company: "Mersys",
+        location: "Frankfurt, Germany (Remote)",
+        period: "Aug 2020 — Feb 2023",
+        icon: "fa-laptop-code",
+        colorClass: "yellow",
+        highlights: [
+            { label: "Tech Stack Excellence", text: "Designed and executed automation scripts using <span class='tech-highlight'>Java, Selenium, TestNG, and RestAssured</span>; managed data with <span class='tech-highlight'>MySQL</span> and <span class='tech-highlight'>Postman</span>." },
+            { label: "Performance & API", text: "Monitored debugging results and conducted API/Performance testing using <span class='tech-highlight'>JMeter</span>, ensuring backend stability." },
+            { label: "Metrics & Tracking", text: "Tracked critical QA metrics such as defect densities and open defect counts to coordinate and prioritize high-impact testing activities." },
+            { label: "Agile Triage", text: "Reviewed specifications to provide meaningful feedback and performed thorough regression testing once bugs were resolved." }
+        ]
+    },
+    {
+        role: "QA / Intern",
+        company: "Mersys",
+        location: "Frankfurt, Germany (Remote)",
+        period: "Jan 2020 — Aug 2020",
+        icon: "fa-seedling",
+        colorClass: "orange",
+        highlights: [
+            { label: "Test Engineering", text: "Developed fundamental skills in <span class='text-white'>Test Engineering</span> and testing processes under professional supervision." },
+            { label: "Quality Assurance", text: "Assisted in the identification and documentation of software defects, contributing to the overall product quality." },
+            { label: "Process Learning", text: "Gained hands-on experience in the software development lifecycle (SDLC) and participated in cross-functional team meetings." }
+        ]
+    },
+    {
+        role: "Physics Teacher",
+        company: "PI Analitik",
+        location: "Cyprus",
+        period: "Aug 2013 — Jun 2019",
+        icon: "fa-atom",
+        colorClass: "orange",
+        highlights: [
+            { label: "Analytical Logic", text: "Applied <span class='text-white'>Systematic Problem-Solving</span> to complex scientific models, a direct precursor to the <span class='text-white'>Structured Thinking</span>." },
+            { label: "Root Cause Mindset", text: "Utilized theoretical physics principles to develop a high-level <span class='text-white'>Root Cause Analysis</span> mindset for identifying failures." },
+            { label: "Mentorship & Lead", text: "Developed strong presentation and <span class='text-white'>Mentorship Skills</span> later utilized in training." }
+        ]
+    }
+];
+
+function renderExperience() {
+    const container = document.getElementById('experience-container');
+    if (!container) return;
+
+    container.innerHTML = experienceData.map(exp => {
+        if (exp.isLegacy) {
+            return `
+                <div class="experience-card group border-dashed border-slate-700 bg-transparent">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-8 gap-4">
+                        <div class="flex gap-4">
+                            <div class="p-3 bg-slate-500/10 rounded-2xl text-slate-400 h-fit">
+                                <i class="fas ${exp.icon} text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-white group-hover:text-slate-300 transition-colors">${exp.role}</h4>
+                                <p class="text-slate-400 font-medium">${exp.company} • ${exp.location}</p>
+                            </div>
+                        </div>
+                        <span class="text-slate-400 font-mono text-sm bg-slate-500/10 px-4 py-2 rounded-full border border-slate-500/20">${exp.period}</span>
+                    </div>
+                    <p class="text-slate-400 text-sm italic ml-2 md:ml-14 border-l-2 border-slate-700 pl-4">${exp.description}</p>
+                </div>`;
+        }
+
+        return `
+            <div class="experience-card group">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-8 gap-4">
+                    <div class="flex gap-4">
+                        <div class="p-3 bg-${exp.colorClass}-500/10 rounded-2xl text-${exp.colorClass}-400 h-fit">
+                            <i class="fas ${exp.icon} text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-white group-hover:text-${exp.colorClass}-400 transition-colors">${exp.role}</h4>
+                            <p class="text-slate-400 font-medium">${exp.company} • ${exp.location}</p>
+                        </div>
+                    </div>
+                    <span class="text-${exp.colorClass}-400 font-mono text-sm bg-${exp.colorClass}-500/10 px-4 py-2 rounded-full border border-${exp.colorClass}-500/20">
+                        ${exp.period}
+                    </span>
+                </div>
+                <ul class="timeline-list text-slate-300 ml-2 md:ml-14">
+                    ${exp.highlights.map(h => `
+                        <li class="flex gap-4 mb-4">
+                            <span class="text-${exp.colorClass}-500 mt-1.5 text-xs">●</span>
+                            <span><b>${h.label}:</b> ${h.text}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>`;
+    }).join('');
+}
+
     // 7. 3D TILT EFFECT
     function initTiltEffect() {
         document.querySelectorAll('.cert-card').forEach(card => {
@@ -405,5 +545,6 @@ function renderArticles() {
     renderCertificates();
     renderProjects();
     renderArticles();
+    renderExperience();
     initTiltEffect();
 });
