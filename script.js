@@ -312,6 +312,75 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // 8. ARTICLES DATA & RENDERER
+const articleData = [
+    {
+        title: "e2e API Performance Testing with k6 and Grafana",
+        link: "https://medium.com/@ahmetdem6325/from-zero-to-dashboard-end-to-end-api-performance-testing-with-k6-and-grafana-6b7c9a6dd4ac",
+        description: "Performance testing is often treated as a “nice-to-have” until something fails in production.",
+        readTime: "5 Min Read",
+        index: "01",
+        isItalic: true
+    },
+    {
+        title: "The Silent Test Killer: How One import Hijacked My WebdriverIO before Hook",
+        link: "https://medium.com/javascript-in-plain-english/the-silent-test-killer-how-one-import-hijacked-my-webdriverio-before-hook-d88f3e328348",
+        description: "Debugging a ghost: My journey into why my Appium tests were ignoring the setup block, and the one-line fix that solved it all.",
+        readTime: "5 Min Read",
+        index: "02"
+    },
+    {
+        title: "Common Bug: Why isDisplayed() Might Drive You Crazy",
+        link: "https://medium.com/@ahmetdem6325/webdriverio-appiums-most-common-bug-why-isdisplayed-might-drive-you-crazy-928b68be6637",
+        description: "If you’ve spent time writing mobile automation tests using WebdriverIO and Appium, chances are you’ve stumbled upon this frustrating error.",
+        readTime: "2 Min Read",
+        index: "03"
+    },
+    {
+        title: "Cypress -- API Testing",
+        link: "https://medium.com/javascript-in-plain-english/cypress-api-testing-a-guide-to-all-http-methods-9bd64d10edc2",
+        description: "While Cypress is often celebrated for UI testing, it also excels in API testing. Its robust commands allow you to interact with APIs directly.",
+        readTime: "4 Min Read",
+        index: "04"
+    },
+    {
+        title: "What is Cypress, and Why Use It?",
+        link: "https://medium.com/@ahmetdem6325/getting-started-with-cypress-your-first-step-in-end-to-end-testing-1bdca8df0712",
+        description: "Cypress is a modern end-to-end testing framework tailored for web applications, built with a focus on speed, reliability, and simplicity.",
+        readTime: "3 Min Read",
+        index: "05"
+    },
+    {
+        title: "Cypress Fixtures for Efficient Testing",
+        link: "https://medium.com/@ahmetdem6325/cypress-fixtures-for-efficient-testing-d629a065e1a8",
+        description: "In the context of Cypress, fixtures refer to external files (usually JSON) that hold mock data.",
+        readTime: "3 Min Read",
+        index: "06"
+    }
+];
+
+function renderArticles() {
+    const container = document.getElementById('articles-container');
+    if (!container) return;
+
+    container.innerHTML = articleData.map(art => `
+        <a href="${art.link}" target="_blank" class="group relative bg-slate-900/30 border border-white/5 p-8 rounded-3xl hover:border-blue-500/50 transition-all duration-500 flex flex-col h-full hover:-translate-y-2">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <i class="fab fa-medium-m text-lg"></i>
+                </div>
+                <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Article // ${art.index}</span>
+            </div>
+            <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-2">${art.title}</h4>
+            <p class="text-slate-400 text-sm mt-4 line-clamp-3 ${art.isItalic ? 'italic' : ''}">${art.description}</p>
+            <div class="mt-auto pt-8 flex items-center justify-between">
+                <span class="text-[10px] font-mono text-slate-600 uppercase italic">${art.readTime}</span>
+                <span class="text-blue-500 font-mono text-[10px] font-bold">EXECUTE_READ();</span>
+            </div>
+        </a>
+    `).join('');
+}
+
     // 7. 3D TILT EFFECT
     function initTiltEffect() {
         document.querySelectorAll('.cert-card').forEach(card => {
@@ -335,5 +404,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // FINAL EXECUTION CALLS
     renderCertificates();
     renderProjects();
+    renderArticles();
     initTiltEffect();
 });
