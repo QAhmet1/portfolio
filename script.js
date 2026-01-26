@@ -231,14 +231,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. PROJECTS DATA & RENDERER
     const featuredProjects = [
         {
-            tag: "E2E Ecosystem",
-            title: "Advanced Playwright Suite",
+            tag: "🚀 Case Study:",
+            title: "Elite-Playwright-Pytest",
             borderColor: "border-l-blue-500",
-            challenge: "Legacy regression took 3+ hours with high flakiness.",
-            solution: "Implemented parallel POM architecture & custom fixtures.",
-            impact: "Reduced execution time to 15 mins (92% improvement).",
-            link: "https://github.com/QAhmet1/Playwright_project",
-            image: "images/playwright.png",
+            challenge: "Legacy test suites were slow and flaky due to environment inconsistencies, leading to unreliable CI/CD feedback and high maintenance costs.",
+            solution: "Architected a Dockerized automation ecosystem using Python and Playwright. Key features include a scalable Page Object Model (POM), parallel execution via pytest-xdist, and seamless GitHub Actions integration with dynamic secret management.",
+            impact: "This transformation resulted in a 90% reduction in execution time, shifting the feedback loop from hours to minutes. By achieving total environment isolation, I effectively eliminated 'it works on my machine' errors and stabilized the CI/CD pipeline.",
+            link: "https://github.com/QAhmet1/playwright-python-allure-framework",
+            image: "images/pytest-playwright.png",
             themeColor: "text-blue-400"
         },
         {
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
             solution: "Containerized load tests with real-time observability.",
             impact: "Identified 3 memory leaks before production release.",
             link: "https://github.com/QAhmet1/K6-Performance-Testing",
-            image: "images/k6-performance-testing.png",
+            image: "images/k6-performance-testing.png ",
             themeColor: "text-yellow-500"
         },
         {
@@ -540,6 +540,111 @@ function renderExperience() {
             });
         });
     }
+
+    /** * SDET Assistant Logic for existing HTML Terminal 
+ * No HTML changes required.
+ */
+const GEMINI_API_KEY = "AIzaSyBkhPKDQWWHk25PPF-Ac29PY6YFmXOK9_8";
+let isAiMode = false;
+
+// Context for Gemini based on your CV
+const AHMET_CONTEXT = `
+  You are Ahmet Demir's Digital Twin. 
+  [cite_start]Background: Senior SDET with 5+ years of experience[cite: 5].
+  [cite_start]Key Wins: 50% reduction in regression time (from 2 days to 1)[cite: 6].
+  [cite_start]Stack: WDIO, Cypress, Appium, Playwright, Selenium, K6[cite: 14, 17].
+  [cite_start]Work History: Amega, BDSwiss, Techno Study, Mersys[cite: 32, 41, 50, 57].
+`;
+
+// const tInput = document.getElementById('terminal-input');
+// const tOutput = document.getElementById('terminal-output');
+// The core terminal logic
+document.addEventListener('DOMContentLoaded', () => {
+    const tInput = document.getElementById('terminal-input');
+    const tOutput = document.getElementById('terminal-output');
+    const tScreen = document.getElementById('terminal-screen');
+
+    if (!tInput) return; // Guard clause
+
+    tInput.addEventListener('keydown', async (e) => {
+        if (e.key === 'Enter') {
+            const val = tInput.value.trim();
+            const cmd = val.toLowerCase();
+            tInput.value = ""; // Clear immediately
+
+            // 1. Show User Input
+            const userLine = document.createElement('div');
+            userLine.className = "text-blue-400 font-bold";
+            userLine.innerHTML = `➜ ~/sdet ${val}`;
+            tOutput.appendChild(userLine);
+
+            // 2. Logic Controller
+            if (cmd === 'ai') {
+                isAiMode = true;
+                renderSystemMsg("SDET AI Mode: ACTIVE. Talk to Ahmet's twin.");
+            } else if (cmd === 'exit') {
+                isAiMode = false;
+                renderSystemMsg("Standard Mode restored.");
+            } else if (isAiMode) {
+                await askGemini(val);
+            } else {
+                handleStandardCommands(cmd);
+            }
+
+            // Auto-scroll
+            tScreen.scrollTop = tScreen.scrollHeight;
+        }
+    });
+
+    function renderSystemMsg(msg) {
+        const div = document.createElement('div');
+        div.className = "text-green-500 italic py-1";
+        div.innerText = `› ${msg}`;
+        tOutput.appendChild(div);
+    }
+
+    function handleStandardCommands(cmd) {
+        let resp = "";
+        if (cmd === 'help') resp = "Try: ai, clear, about, exit";
+        else if (cmd === 'about') resp = "Ahmet Demir is a Senior SDET with 5+ years of experience.";
+        else if (cmd === 'clear') { tOutput.innerHTML = ""; return; }
+        else resp = `Command '${cmd}' not found. Type 'ai' to start.`;
+
+        const div = document.createElement('div');
+        div.className = "text-slate-400 py-1";
+        div.innerText = resp;
+        tOutput.appendChild(div);
+    }
+});
+
+async function askGemini(prompt) {
+    renderLine("› Thinking...", "text-slate-500 italic", "loading-msg");
+    try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: `Context: ${AHMET_CONTEXT}\nUser: ${prompt}` }] }]
+            })
+        });
+        const data = await response.json();
+        const aiMsg = data.candidates[0].content.parts[0].text;
+        
+        document.getElementById('loading-msg').remove();
+        renderLine(`[AI]: ${aiMsg}`, "text-blue-200 pl-4 border-l border-blue-900");
+    } catch (e) {
+        renderLine("› Error: Could not connect to Gemini API.", "text-red-500");
+    }
+}
+
+function renderLine(text, className, id = "") {
+    const div = document.createElement('div');
+    if (id) div.id = id;
+    div.className = className;
+    div.innerHTML = text;
+    tOutput.appendChild(div);
+    document.getElementById('terminal-screen').scrollTop = tOutput.scrollHeight;
+}
 
     // FINAL EXECUTION CALLS
     renderCertificates();
