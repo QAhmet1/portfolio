@@ -5,9 +5,64 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
+    // 0. THEME TOGGLE (Dark/Light Mode)
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    // Get saved theme or default to dark
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+            
+            // Smooth transition
+            body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        });
+    }
+    
+    function updateThemeIcon(theme) {
+        const iconLight = document.getElementById('theme-icon-light');
+        const iconDark = document.getElementById('theme-icon-dark');
+        const iconLightMobile = document.getElementById('theme-icon-light-mobile');
+        const iconDarkMobile = document.getElementById('theme-icon-dark-mobile');
+        
+        if (theme === 'light') {
+            if (iconLight) iconLight.classList.add('hidden');
+            if (iconDark) iconDark.classList.remove('hidden');
+            if (iconLightMobile) iconLightMobile.classList.add('hidden');
+            if (iconDarkMobile) iconDarkMobile.classList.remove('hidden');
+        } else {
+            if (iconLight) iconLight.classList.remove('hidden');
+            if (iconDark) iconDark.classList.add('hidden');
+            if (iconLightMobile) iconLightMobile.classList.remove('hidden');
+            if (iconDarkMobile) iconDarkMobile.classList.add('hidden');
+        }
+    }
+    
+    // Mobile theme toggle
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    if (themeToggleMobile) {
+        themeToggleMobile.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+    }
+    
     // 1. MOBILE MENU LOGIC
-    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileMenuBtn = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener("click", () => {
