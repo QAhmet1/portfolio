@@ -469,78 +469,63 @@ const experienceData = [
     }
 ];
 
+/**
+ * REFINED EXPERIENCE RENDERER
+ * Creates a compact, high-impact layout.
+ */
 function renderExperience() {
     const container = document.getElementById('experience-container');
     if (!container) return;
 
-    container.innerHTML = experienceData.map(exp => {
-        if (exp.isLegacy) {
-            return `
-                <div class="experience-card group border-dashed border-slate-700 bg-transparent">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-8 gap-4">
-                        <div class="flex gap-4">
-                            <div class="p-3 bg-slate-500/10 rounded-2xl text-slate-400 h-fit">
-                                <i class="fas ${exp.icon} text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-2xl font-bold text-white group-hover:text-slate-300 transition-colors">${exp.role}</h4>
-                                <p class="text-slate-400 font-medium">${exp.company} • ${exp.location}</p>
-                            </div>
-                        </div>
-                        <span class="text-slate-400 font-mono text-sm bg-slate-500/10 px-4 py-2 rounded-full border border-slate-500/20">${exp.period}</span>
-                    </div>
-                    <p class="text-slate-400 text-sm italic ml-2 md:ml-14 border-l-2 border-slate-700 pl-4">${exp.description}</p>
-                </div>`;
-        }
+    container.innerHTML = experienceData.map((exp, index) => {
+        // Dynamic color for borders and highlights
+        const themeColor = exp.colorClass === 'blue' ? '#3b82f6' : 
+                          exp.colorClass === 'green' ? '#10b981' : '#8b5cf6';
 
         return `
-            <div class="experience-card group">
-                <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-8 gap-4">
-                    <div class="flex gap-4">
-                        <div class="p-3 bg-${exp.colorClass}-500/10 rounded-2xl text-${exp.colorClass}-400 h-fit">
-                            <i class="fas ${exp.icon} text-2xl"></i>
+            <div class="experience-wrapper mb-16 relative pl-8 md:pl-0">
+                <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-slate-800 hidden md:block"></div>
+                
+                <div class="experience-card group relative p-1 bg-gradient-to-b from-slate-800/50 to-transparent rounded-[2rem]">
+                    <div class="bg-slate-950/90 rounded-[1.9rem] p-6 md:p-10 backdrop-blur-xl">
+                        
+                        <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-8">
+                            <div class="flex items-center gap-5">
+                                <div class="p-4 bg-${exp.colorClass}-500/10 rounded-2xl border border-${exp.colorClass}-500/20">
+                                    <i class="fas ${exp.icon} text-3xl text-${exp.colorClass}-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-3xl font-extrabold text-white tracking-tight">${exp.role}</h4>
+                                    <p class="text-slate-400 font-medium">${exp.company} <span class="mx-2 text-slate-700">•</span> ${exp.location}</p>
+                                </div>
+                            </div>
+                            <span class="px-4 py-2 rounded-full border border-slate-800 bg-slate-900 text-slate-400 font-mono text-sm">
+                                ${exp.period}
+                            </span>
                         </div>
-                        <div>
-                            <h4 class="text-2xl font-bold text-white group-hover:text-${exp.colorClass}-400 transition-colors">${exp.role}</h4>
-                            <p class="text-slate-400 font-medium">${exp.company} • ${exp.location}</p>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            ${exp.highlights.map(h => `
+                                <div class="experience-item-box group/item" style="--highlight-color: ${themeColor}">
+                                    <div class="flex gap-3">
+                                        <span class="text-${exp.colorClass}-500 font-mono mt-1">//</span>
+                                        <div>
+                                            <h5 class="text-white font-bold text-sm uppercase tracking-wider mb-2 group-hover/item:text-${exp.colorClass}-400 transition-colors">
+                                                ${h.label}
+                                            </h5>
+                                            <p class="text-slate-400 text-sm leading-relaxed">
+                                                ${h.text}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
                         </div>
                     </div>
-                    <span class="text-${exp.colorClass}-400 font-mono text-sm bg-${exp.colorClass}-500/10 px-4 py-2 rounded-full border border-${exp.colorClass}-500/20">
-                        ${exp.period}
-                    </span>
                 </div>
-                <ul class="timeline-list text-slate-300 ml-2 md:ml-14">
-                    ${exp.highlights.map(h => `
-                        <li class="flex gap-4 mb-4">
-                            <span class="text-${exp.colorClass}-500 mt-1.5 text-xs">●</span>
-                            <span><b>${h.label}:</b> ${h.text}</span>
-                        </li>
-                    `).join('')}
-                </ul>
             </div>`;
     }).join('');
 }
-
-    // 7. 3D TILT EFFECT
-    function initTiltEffect() {
-        document.querySelectorAll('.cert-card').forEach(card => {
-            const inner = card.querySelector('.cert-card-inner');
-            if(!inner) return;
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const mouseX = (e.clientX - centerX) / (rect.width / 2);
-                const mouseY = (e.clientY - centerY) / (rect.height / 2);
-                inner.style.transform = `rotateX(${-mouseY * 8}deg) rotateY(${mouseX * 8}deg)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                inner.style.transition = 'transform 0.5s ease';
-                inner.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            });
-        });
-    }
-
     /** * SDET Assistant Logic for existing HTML Terminal 
  * No HTML changes required.
  */
