@@ -85,7 +85,7 @@
         </div>
     </div>
 </div>
-  <body class="antialiased bg-slate-950 text-slate-50">
+  <body class="antialiased bg-slate-950 text-slate-50" data-theme="dark">
     <!-- 1. Header and Navigation (Sticky) -->
     <header
       class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-white/10"
@@ -158,6 +158,41 @@
             class="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg hover:shadow-blue-500/30 transition duration-150"
             >Contact</a
           >
+          <!-- Dark/Light Mode Toggle -->
+          <button
+            id="theme-toggle"
+            class="ml-2 p-2 rounded-lg text-slate-200 hover:bg-white/10 transition duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+            aria-label="Toggle dark/light mode"
+          >
+            <svg
+              id="theme-icon-dark"
+              class="w-5 h-5 hidden"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+            <svg
+              id="theme-icon-light"
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+          </button>
         </nav>
         <!-- Mobile Menu Button -->
         <button
@@ -192,6 +227,46 @@
         <a href="#certifications" class="mobile-link">Certifications</a>
         <a href="#media" class="mobile-link">Media</a>
         <a href="#contact" class="mobile-link">Contact</a>
+        <!-- Mobile Theme Toggle -->
+        <div class="px-4 py-3 border-t border-white/10">
+          <button
+            id="theme-toggle-mobile"
+            class="w-full flex items-center justify-between p-2 rounded-lg text-slate-200 hover:bg-white/10 transition duration-150"
+            aria-label="Toggle dark/light mode"
+          >
+            <span class="text-sm font-medium">Theme</span>
+            <div class="flex items-center space-x-2">
+              <svg
+                id="theme-icon-dark-mobile"
+                class="w-5 h-5 hidden"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                />
+              </svg>
+              <svg
+                id="theme-icon-light-mobile"
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            </div>
+          </button>
+        </div>
       </div>
     </header>
 

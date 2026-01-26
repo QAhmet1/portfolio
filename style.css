@@ -15,8 +15,454 @@ html {
     sans-serif;
 }
 
+/* Light Mode Variables */
+[data-theme="light"] {
+  --bg: #ffffff;
+  --card: rgba(255, 255, 255, 0.95);
+  --border: rgba(0, 0, 0, 0.1);
+  --text: #1e293b;
+  --muted: #64748b;
+  --primary: #2563eb;
+  --primary-2: #4f46e5;
+  --glow: rgba(37, 99, 235, 0.3);
+}
+
 body {
   background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode Specific Overrides */
+[data-theme="light"] body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+[data-theme="light"] .bg-slate-950,
+[data-theme="light"] .bg-slate-900 {
+  background-color: #ffffff !important;
+}
+
+[data-theme="light"] .text-slate-50,
+[data-theme="light"] .text-white {
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .text-slate-200,
+[data-theme="light"] .text-slate-300 {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .text-slate-400 {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .border-white\/10,
+[data-theme="light"] .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .bg-white\/5,
+[data-theme="light"] .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .backdrop-blur {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="light"] header {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .skill-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .certification-card,
+[data-theme="light"] .timeline-item {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .skill-card:hover,
+[data-theme="light"] .project-card:hover,
+[data-theme="light"] .certification-card:hover,
+[data-theme="light"] .timeline-item:hover {
+  border-color: rgba(37, 99, 235, 0.4) !important;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15) !important;
+}
+
+[data-theme="light"] .pill-card {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .metric-card {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .nav-link:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .mobile-link {
+  color: #1e293b !important;
+  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .mobile-link:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] footer {
+  background: rgba(248, 250, 252, 0.95) !important;
+  border-top-color: rgba(0, 0, 0, 0.1) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .contact-input {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-color: rgba(37, 99, 235, 0.2) !important;
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .contact-input:focus {
+  background: rgba(255, 255, 255, 1) !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.15) !important;
+}
+
+[data-theme="light"] .contact-label {
+  color: #2563eb !important;
+}
+
+[data-theme="light"] .tag {
+  background: rgba(37, 99, 235, 0.1) !important;
+  border-color: rgba(37, 99, 235, 0.2) !important;
+  color: #1e40af !important;
+}
+
+[data-theme="light"] .project-link {
+  color: #2563eb !important;
+  border-color: rgba(37, 99, 235, 0.3) !important;
+  background: rgba(37, 99, 235, 0.1) !important;
+}
+
+[data-theme="light"] .project-link:hover {
+  background: rgba(37, 99, 235, 0.2) !important;
+  border-color: rgba(37, 99, 235, 0.5) !important;
+}
+
+[data-theme="light"] .certification-link {
+  color: #2563eb !important;
+}
+
+[data-theme="light"] .certification-link:hover {
+  color: #1d4ed8 !important;
+}
+
+[data-theme="light"] .certification-icon {
+  background: rgba(37, 99, 235, 0.1) !important;
+  border-color: rgba(37, 99, 235, 0.2) !important;
+  color: #2563eb !important;
+}
+
+[data-theme="light"] .certification-issuer {
+  color: #2563eb !important;
+}
+
+[data-theme="light"] .timeline-company {
+  color: #2563eb !important;
+}
+
+[data-theme="light"] .social-link {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .social-link:hover {
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .profile-social-link {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .profile-social-link:hover {
+  background: rgba(37, 99, 235, 0.1) !important;
+  border-color: rgba(37, 99, 235, 0.3) !important;
+  color: #2563eb !important;
+}
+
+/* Theme Toggle Button Styles */
+#theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#theme-toggle svg {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+[data-theme="dark"] #theme-icon-light {
+  display: block;
+}
+
+[data-theme="dark"] #theme-icon-dark {
+  display: none;
+}
+
+[data-theme="light"] #theme-icon-light {
+  display: none;
+}
+
+[data-theme="light"] #theme-icon-dark {
+  display: block;
+}
+
+/* Additional Light Mode Optimizations */
+[data-theme="light"] .btn-primary {
+  background: linear-gradient(135deg, #2563eb, #4f46e5) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .btn-ghost {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  color: #475569 !important;
+  background: rgba(248, 250, 252, 0.8) !important;
+}
+
+[data-theme="light"] .btn-ghost:hover {
+  border-color: rgba(37, 99, 235, 0.4) !important;
+  color: #1e293b !important;
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+[data-theme="light"] .section-title {
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .pill-title,
+[data-theme="light"] .skill-title,
+[data-theme="light"] .project-title,
+[data-theme="light"] .certification-title,
+[data-theme="light"] .timeline-role {
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .pill-body,
+[data-theme="light"] .skill-body,
+[data-theme="light"] .project-body,
+[data-theme="light"] .certification-description {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .metric-number {
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .metric-label {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .glow {
+  opacity: 0.3;
+}
+
+[data-theme="light"] .code-inline {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #1e293b !important;
+}
+
+/* Terminal and Console Light Mode */
+[data-theme="light"] #terminal-modal {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme="light"] #terminal-modal .bg-black {
+  background: #f8fafc !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] #terminal-modal .bg-gray-800\/90 {
+  background: rgba(248, 250, 252, 0.95) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] #terminal-screen {
+  color: #1e293b !important;
+}
+
+[data-theme="light"] #terminal-screen .text-blue-400 {
+  color: #2563eb !important;
+}
+
+[data-theme="light"] #terminal-screen .text-slate-400 {
+  color: #64748b !important;
+}
+
+[data-theme="light"] #terminal-screen .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] #terminal-screen .text-green-500 {
+  color: #10b981 !important;
+}
+
+[data-theme="light"] #terminal-screen .text-white {
+  color: #1e293b !important;
+}
+
+[data-theme="light"] #terminal-input {
+  color: #1e293b !important;
+}
+
+/* Contact Form Light Mode */
+[data-theme="light"] .contact-console-wrapper {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.9)) !important;
+}
+
+[data-theme="light"] .contact-console-wrapper .bg-slate-950\/90 {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme="light"] .contact-submit-btn {
+  background: #2563eb !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .contact-submit-btn:hover {
+  background: #1d4ed8 !important;
+  box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Profile Card Light Mode */
+[data-theme="light"] .profile-card-inner {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .profile-card-inner:hover {
+  border-color: rgba(37, 99, 235, 0.3) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Experience Cards Light Mode */
+[data-theme="light"] .experience-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .experience-card:hover {
+  border-color: rgba(37, 99, 235, 0.3) !important;
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+[data-theme="light"] .experience-item-box {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .experience-item-box:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Cert Cards Light Mode */
+[data-theme="light"] .cert-card-inner {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9)) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .cert-card:hover .cert-card-inner {
+  border-color: rgba(37, 99, 235, 0.4) !important;
+  box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.2) !important;
+}
+
+[data-theme="light"] .cert-badge {
+  background: rgba(37, 99, 235, 0.1) !important;
+  border-color: rgba(37, 99, 235, 0.2) !important;
+}
+
+[data-theme="light"] .cert-verify-btn {
+  background: rgba(37, 99, 235, 0.2) !important;
+  border-color: rgba(37, 99, 235, 0.3) !important;
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .cert-verify-btn:hover {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Project Cards Light Mode */
+[data-theme="light"] .card-modern {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .card-modern:hover {
+  border-color: rgba(37, 99, 235, 0.4) !important;
+  box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.2) !important;
+}
+
+/* Articles Light Mode */
+[data-theme="light"] .bg-slate-900\/30 {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .bg-slate-900\/30:hover {
+  border-color: rgba(37, 99, 235, 0.4) !important;
+}
+
+[data-theme="light"] .bg-blue-600\/10 {
+  background: rgba(37, 99, 235, 0.1) !important;
+}
+
+[data-theme="light"] .bg-blue-600\/10:hover {
+  background: rgba(37, 99, 235, 0.2) !important;
+}
+
+/* AI Toolbox Dropdown Light Mode */
+[data-theme="light"] .bg-slate-900 {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .bg-slate-800 {
+  background: rgba(248, 250, 252, 0.8) !important;
+}
+
+[data-theme="light"] .hover\:bg-blue-600\/10:hover {
+  background: rgba(37, 99, 235, 0.1) !important;
+}
+
+[data-theme="light"] .hover\:text-blue-400:hover {
+  color: #2563eb !important;
 }
 
 .glow {
